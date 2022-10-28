@@ -58,11 +58,11 @@ new YarnProject(workspace, "core", {
     "memfs",
     "mustache",
     "object-hash",
-    "sync-request",
     "js-yaml",
     "winston",
     "dependency-graph",
     "md5-file",
+    "spdx-license-list"
   ],
   scripts: {
     yalc: "npx yalc publish",
