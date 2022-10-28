@@ -1,0 +1,46 @@
+'on':
+  push:
+    branches:
+      - main
+  workflow_dispatch: {}
+concurrency: '1'
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      latest_commit: ${{ steps.Check.outputs.latest_commit }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        id: Checkout
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-yarn-release
+          path: .yarn/cache
+        id: Cache
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+          registry-url: https://registry.npmjs.org/
+          cache: yarn
+        id: SetupNode
+      - run: yarn config set --home npmAuthToken ${{ secrets.NPM_TOKEN }}
+        id: YarnAuth
+      - name: Install Dependencies
+        run: yarn install --immutable
+        id: Install
+      - name: Build
+        run: yarn build
+        id: Build
+      - name: Release
+        run: npm run release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        id: Release
+      - name: Check for new commits
+        run: echo ::set-output name=latest_commit::"$(git ls-remote origin -h ${{ github.ref }} | cut -f1)"
+        id: Check
