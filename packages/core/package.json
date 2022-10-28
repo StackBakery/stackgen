@@ -1,5 +1,5 @@
 {
-  "name": "@pdkit/core",
+  "name": "@stackgen/core",
   "license": "Apache-2.0",
   "version": "4.0.0",
   "author": {
@@ -32,6 +32,7 @@
     "mustache": "4.2.0",
     "object-hash": "3.0.0",
     "spdx-license-list": "6.6.0",
+    "sync-request": "6.1.0",
     "winston": "3.8.2"
   },
   "devDependencies": {
@@ -296,7 +297,7 @@
     "overrides": [
       {
         "files": [
-          ".pdkitrc.ts"
+          ".stackgenrc.ts"
         ],
         "rules": {
           "@typescript-eslint/no-require-imports": "off",
