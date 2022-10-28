@@ -93,8 +93,8 @@ npm install @stackgen/cli
 
 ## Usage
 
-We eat our own dogfood, check out our [stackgen.rc](./.stackgenrc) for an idea on how to get started. We use Typescript to
-help ensure optimum IDE support.
+We eat our own dogfood, check out our [stackgenrc.ts](./.stackgenrc.ts) for an idea on how to get started.
+We use Typescript to help ensure optimum IDE support.
 
 **This is ALPHA software, use at your own risk!**
 
