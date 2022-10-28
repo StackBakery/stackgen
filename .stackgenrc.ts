@@ -1,4 +1,4 @@
-import { SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
+import { Bindings, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
 
 const workspace = new YarnMonoWorkspace({
   author: {
@@ -123,5 +123,16 @@ new YarnProject(workspace, "cli", {
     doubleQuotes: true,
   },
 });
+
+
+Bindings
+  .of(workspace)
+  .filterByClass(Project)
+  .filter((project) => !project.isDefaultProject)
+  .forEach((project) => {
+    new PackageDependency(project, 'tsup', {
+      type: PackageDependencyType.DEV
+    })
+})
 
 export default workspace;
