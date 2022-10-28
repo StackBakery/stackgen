@@ -1,7 +1,7 @@
 import { Construct } from "constructs";
+import licenses from "spdx-license-list/full";
 import { File, FileSynthesizer } from "../../L1";
 import { ManifestEntry } from "./ManifestEntry";
-import licenses from 'spdx-license-list/full'
 
 // Run packages/@pdkit/core/util/CodeGenValidLicense.ts to regenerate this list
 export type ValidLicense =
@@ -493,7 +493,7 @@ export type ValidLicense =
   | "wxWindows"
   | "xinetd"
   | "xpp"
-  | "zlib-acknowledgement"
+  | "zlib-acknowledgement";
 
 export class License extends ManifestEntry {
   public static readonly ID = "License";
@@ -515,6 +515,6 @@ export class License extends ManifestEntry {
   }
 
   get content() {
-    return licenses[this.license].licenseText
+    return licenses[this.license].licenseText;
   }
 }
