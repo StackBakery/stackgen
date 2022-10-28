@@ -10,7 +10,7 @@
   "types": "./index.d.ts",
   "scripts": {
     "yalc": "npx yalc publish",
-    "compile": "tsc -p ./tsconfig.json",
+    "compile": "tsup ./index.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts .",
     "test": "jest --passWithNoTests --all"

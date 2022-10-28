@@ -1,4 +1,4 @@
-import { Bindings, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
+import { Bindings, ManifestEntry, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
 
 const workspace = new YarnMonoWorkspace({
   author: {
@@ -108,7 +108,6 @@ new YarnProject(workspace, "cli", {
   peerDependencies: ["@stackgen/core"],
   files: ["*.ts", "**/*.ts", "tsconfig.json"],
   scripts: {
-    compile: undefined as any,
     stackgen: "npx npx stackgen",
     yalc: "npx yalc publish",
   },
@@ -129,9 +128,15 @@ Bindings
   .of(workspace)
   .filterByClass(Project)
   .filter((project) => !project.isDefaultProject)
-  .forEach((project) => {
+  .forEach((project, i) => {
     new PackageDependency(project, 'tsup', {
       type: PackageDependencyType.DEV
+    })
+
+    new ManifestEntry(project, 'CompileScript', {
+      scripts: {
+        compile: 'tsup ./index.ts',
+      }
     })
 })
 

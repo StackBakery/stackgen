@@ -15,6 +15,7 @@
   "scripts": {
     "stackgen": "npx npx stackgen",
     "yalc": "npx yalc publish",
+    "compile": "tsup ./index.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts ."
   },
