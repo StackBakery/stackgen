@@ -77,7 +77,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ## Getting Started
 
-** This is ALPHA software, use at your own risk! **
+**This is ALPHA software, use at your own risk!**
 
 ### Installation
 
@@ -96,7 +96,7 @@ npm install @stackgen/cli
 We eat our own dogfood, check out our [stackgen.rc](./.stackgenrc) for an idea on how to get started. We use Typescript to
 help ensure optimum IDE support.
 
-** This is ALPHA software, use at your own risk! **
+**This is ALPHA software, use at your own risk!**
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
