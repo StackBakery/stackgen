@@ -1,5 +1,12 @@
 import { Bindings, ManifestEntry, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
 
+function workspaceDependency (pkg: string) {
+  return {
+    name: ['@stackgen', pkg].join('/'),
+    version: ['workspace:packages', pkg].join('/'),
+  }
+}
+
 const workspace = new YarnMonoWorkspace({
   author: {
     name: "Justin McCormick",
@@ -9,7 +16,7 @@ const workspace = new YarnMonoWorkspace({
   dependencies: ["mustache"],
   disableAutoLib: true,
   devDependencies: [
-    { name: "@stackgen/core", version: "workspace:*" },
+    workspaceDependency('core'),
     "@types/mustache",
     "@types/node",
     "prettier",
@@ -105,9 +112,9 @@ new YarnProject(workspace, "cli", {
   ],
   devDependencies: [
     "typescript",
-    "@stackgen/core"
+    workspaceDependency('core'),
   ],
-  peerDependencies: ["@stackgen/core"],
+  peerDependencies: [workspaceDependency('core')],
   files: ["*.ts", "**/*.ts", "tsconfig.json"],
   scripts: {
     stackgen: "npx npx stackgen",
