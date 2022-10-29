@@ -308,10 +308,6 @@
     ]
   },
   "jest": {
-    "snapshotFormat": {
-      "escapeString": true,
-      "printBasicPrototype": true
-    },
     "clearMocks": true,
     "collectCoverage": true,
     "coverageReporters": [

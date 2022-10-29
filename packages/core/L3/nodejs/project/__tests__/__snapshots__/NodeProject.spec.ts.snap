@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NodeProject creates a generic NodeJS project 1`] = `
-Object {
-  "author": Object {
+{
+  "author": {
     "email": "test@example.com",
     "name": "Test Example",
     "organization": true,
@@ -10,21 +10,21 @@ Object {
   },
   "bin": undefined,
   "bugs": undefined,
-  "bundledDependencies": Array [
+  "bundledDependencies": [
     "@devPackage/latest",
   ],
-  "dependencies": Object {
+  "dependencies": {
     "@package/latest": "*",
     "@package/version": "^1",
   },
   "description": "MyDescription",
-  "devDependencies": Object {
+  "devDependencies": {
     "@devPackage/latest": "*",
     "@devPackage/version": "^2",
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -33,19 +33,19 @@ Object {
   "main": "build/index.js",
   "man": undefined,
   "name": "my-project",
-  "peerDependencies": Object {
+  "peerDependencies": {
     "@peerPackage/latest": "*",
     "@peerPackage/version": "^3",
   },
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
-  "resolutions": Object {
+  "resolutions": {
     "a": "b",
   },
-  "scripts": Object {
+  "scripts": {
     "test": "./myTestScript.sh",
   },
   "types": undefined,
@@ -54,75 +54,75 @@ Object {
 `;
 
 exports[`NodeProject creates a generic NodeJS project with Eslint 1`] = `
-Object {
-  "env": Object {
+{
+  "env": {
     "jest": false,
     "node": true,
   },
-  "extends": Array [
+  "extends": [
     "plugin:import/recommended",
   ],
-  "ignorePatterns": Array [
+  "ignorePatterns": [
     "node_modules/",
     "*.generated.ts",
     "coverage",
   ],
-  "overrides": Array [
-    Object {
-      "files": Array [
+  "overrides": [
+    {
+      "files": [
         ".stackgenrc.ts",
       ],
-      "rules": Object {
+      "rules": {
         "@typescript-eslint/no-require-imports": "off",
         "import/no-extraneous-dependencies": "off",
       },
     },
   ],
   "parser": undefined,
-  "parserOptions": Object {
+  "parserOptions": {
     "ecmaVersion": 2020,
   },
-  "plugins": Array [],
+  "plugins": [],
   "root": true,
-  "rules": Object {
-    "array-bracket-newline": Array [
+  "rules": {
+    "array-bracket-newline": [
       "error",
       "consistent",
     ],
-    "array-bracket-spacing": Array [
+    "array-bracket-spacing": [
       "error",
       "never",
     ],
-    "brace-style": Array [
+    "brace-style": [
       "error",
       "1tbs",
-      Object {
+      {
         "allowSingleLine": true,
       },
     ],
-    "comma-dangle": Array [
+    "comma-dangle": [
       "error",
       "only-multiline",
     ],
-    "comma-spacing": Array [
+    "comma-spacing": [
       "error",
-      Object {
+      {
         "after": true,
         "before": false,
       },
     ],
-    "curly": Array [
+    "curly": [
       "error",
       "multi-line",
       "consistent",
     ],
-    "dot-notation": Array [
+    "dot-notation": [
       "error",
     ],
-    "import/no-extraneous-dependencies": Array [
+    "import/no-extraneous-dependencies": [
       "error",
-      Object {
-        "devDependencies": Array [
+      {
+        "devDependencies": [
           "**/__tests__/**",
           "**/test/**",
         ],
@@ -130,31 +130,31 @@ Object {
         "peerDependencies": true,
       },
     ],
-    "import/no-unresolved": Array [
+    "import/no-unresolved": [
       "error",
     ],
-    "import/order": Array [
+    "import/order": [
       "warn",
-      Object {
-        "alphabetize": Object {
+      {
+        "alphabetize": {
           "caseInsensitive": true,
           "order": "asc",
         },
-        "groups": Array [
+        "groups": [
           "builtin",
           "external",
         ],
       },
     ],
-    "key-spacing": Array [
+    "key-spacing": [
       "error",
     ],
-    "keyword-spacing": Array [
+    "keyword-spacing": [
       "error",
     ],
-    "max-len": Array [
+    "max-len": [
       "error",
-      Object {
+      {
         "code": 80,
         "ignoreComments": true,
         "ignoreRegExpLiterals": true,
@@ -163,77 +163,77 @@ Object {
         "ignoreUrls": true,
       },
     ],
-    "no-bitwise": Array [
+    "no-bitwise": [
       "error",
     ],
-    "no-duplicate-imports": Array [
+    "no-duplicate-imports": [
       "error",
     ],
-    "no-multi-spaces": Array [
+    "no-multi-spaces": [
       "error",
-      Object {
+      {
         "ignoreEOLComments": false,
       },
     ],
-    "no-multiple-empty-lines": Array [
+    "no-multiple-empty-lines": [
       "error",
     ],
-    "no-return-await": Array [
+    "no-return-await": [
       "off",
     ],
-    "no-shadow": Array [
+    "no-shadow": [
       "off",
     ],
-    "no-trailing-spaces": Array [
+    "no-trailing-spaces": [
       "error",
     ],
-    "object-curly-newline": Array [
+    "object-curly-newline": [
       "error",
-      Object {
+      {
         "consistent": true,
         "multiline": true,
       },
     ],
-    "object-curly-spacing": Array [
+    "object-curly-spacing": [
       "error",
       "always",
     ],
-    "object-property-newline": Array [
+    "object-property-newline": [
       "error",
-      Object {
+      {
         "allowAllPropertiesOnSameLine": true,
       },
     ],
-    "quote-props": Array [
+    "quote-props": [
       "error",
       "consistent-as-needed",
     ],
-    "quotes": Array [
+    "quotes": [
       "error",
       "double",
-      Object {
+      {
         "avoidEscape": true,
       },
     ],
-    "semi": Array [
+    "semi": [
       "error",
       "always",
     ],
-    "space-before-blocks": Array [
+    "space-before-blocks": [
       "error",
     ],
   },
-  "settings": Object {
-    "import/parsers": Object {
-      "@typescript-eslint/parser": Array [
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
         ".ts",
         ".tsx",
       ],
     },
-    "import/resolver": Object {
-      "alias": Object {},
-      "node": Object {
-        "extensions": Array [
+    "import/resolver": {
+      "alias": {},
+      "node": {
+        "extensions": [
           ".js",
           ".jsx",
         ],
@@ -245,97 +245,97 @@ Object {
 `;
 
 exports[`NodeProject creates a generic NodeJS project with Eslint, Jest, and Typescript 1`] = `
-Object {
+{
   "clearMocks": true,
   "collectCoverage": true,
   "coverageDirectory": "coverage",
-  "coveragePathIgnorePatterns": Array [
+  "coveragePathIgnorePatterns": [
     "node_modules",
   ],
-  "coverageReporters": Array [
+  "coverageReporters": [
     "json",
     "text",
   ],
-  "globals": Object {
-    "ts-jest": Object {
+  "globals": {
+    "ts-jest": {
       "tsconfig": "tsconfig.json",
     },
   },
-  "modulePathIgnorePatterns": Array [
+  "modulePathIgnorePatterns": [
     "node_modules",
   ],
   "preset": "ts-jest",
-  "reporters": Array [
+  "reporters": [
     "default",
-    Array [
+    [
       "jest-junit",
-      Object {
+      {
         "outputDirectory": "test-reports",
         "outputName": undefined,
       },
     ],
   ],
   "snapshotResolver": undefined,
-  "testMatch": Array [
+  "testMatch": [
     "**/__tests__/?(*.)+(spec|test).[tj]s?(x)",
     "**/__tests__/**/?(*.)+(spec|test).[tj]s?(x)",
     "**/?(*.)+(spec|test).[tj]s?(x)",
   ],
-  "testPathIgnorePatterns": Array [
+  "testPathIgnorePatterns": [
     "node_modules",
   ],
-  "watchPathIgnorePatterns": Array [
+  "watchPathIgnorePatterns": [
     "node_modules",
   ],
 }
 `;
 
 exports[`NodeProject creates a generic NodeJS project with Eslint, Jest, and Typescript 2`] = `
-Object {
-  "env": Object {
+{
+  "env": {
     "jest": true,
     "node": true,
   },
-  "extends": Array [
+  "extends": [
     "plugin:import/recommended",
     "plugin:import/typescript",
   ],
-  "ignorePatterns": Array [
+  "ignorePatterns": [
     "node_modules/",
     "*.generated.ts",
     "coverage",
     "*.js",
     "*.d.ts",
   ],
-  "overrides": Array [
-    Object {
-      "files": Array [
+  "overrides": [
+    {
+      "files": [
         ".stackgenrc.ts",
       ],
-      "rules": Object {
+      "rules": {
         "@typescript-eslint/no-require-imports": "off",
         "import/no-extraneous-dependencies": "off",
       },
     },
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": Object {
+  "parserOptions": {
     "ecmaVersion": 2020,
     "project": "./tsconfig.json",
     "sourceType": "module",
   },
-  "plugins": Array [
+  "plugins": [
     "@typescript-eslint",
   ],
   "root": true,
-  "rules": Object {
-    "@typescript-eslint/member-delimiter-style": Array [
+  "rules": {
+    "@typescript-eslint/member-delimiter-style": [
       "error",
     ],
-    "@typescript-eslint/member-ordering": Array [
+    "@typescript-eslint/member-ordering": [
       "error",
-      Object {
-        "default": Array [
+      {
+        "default": [
           "public-static-field",
           "public-static-method",
           "protected-static-field",
@@ -348,56 +348,56 @@ Object {
         ],
       },
     ],
-    "@typescript-eslint/no-floating-promises": Array [
+    "@typescript-eslint/no-floating-promises": [
       "error",
     ],
-    "@typescript-eslint/no-require-imports": Array [
+    "@typescript-eslint/no-require-imports": [
       "error",
     ],
-    "@typescript-eslint/no-shadow": Array [
+    "@typescript-eslint/no-shadow": [
       "error",
     ],
-    "@typescript-eslint/return-await": Array [
+    "@typescript-eslint/return-await": [
       "error",
     ],
-    "array-bracket-newline": Array [
+    "array-bracket-newline": [
       "error",
       "consistent",
     ],
-    "array-bracket-spacing": Array [
+    "array-bracket-spacing": [
       "error",
       "never",
     ],
-    "brace-style": Array [
+    "brace-style": [
       "error",
       "1tbs",
-      Object {
+      {
         "allowSingleLine": true,
       },
     ],
-    "comma-dangle": Array [
+    "comma-dangle": [
       "error",
       "only-multiline",
     ],
-    "comma-spacing": Array [
+    "comma-spacing": [
       "error",
-      Object {
+      {
         "after": true,
         "before": false,
       },
     ],
-    "curly": Array [
+    "curly": [
       "error",
       "multi-line",
       "consistent",
     ],
-    "dot-notation": Array [
+    "dot-notation": [
       "error",
     ],
-    "import/no-extraneous-dependencies": Array [
+    "import/no-extraneous-dependencies": [
       "error",
-      Object {
-        "devDependencies": Array [
+      {
+        "devDependencies": [
           "**/__tests__/**",
           "**/test/**",
         ],
@@ -405,34 +405,34 @@ Object {
         "peerDependencies": true,
       },
     ],
-    "import/no-unresolved": Array [
+    "import/no-unresolved": [
       "error",
     ],
-    "import/order": Array [
+    "import/order": [
       "warn",
-      Object {
-        "alphabetize": Object {
+      {
+        "alphabetize": {
           "caseInsensitive": true,
           "order": "asc",
         },
-        "groups": Array [
+        "groups": [
           "builtin",
           "external",
         ],
       },
     ],
-    "indent": Array [
+    "indent": [
       "off",
     ],
-    "key-spacing": Array [
+    "key-spacing": [
       "error",
     ],
-    "keyword-spacing": Array [
+    "keyword-spacing": [
       "error",
     ],
-    "max-len": Array [
+    "max-len": [
       "error",
-      Object {
+      {
         "code": 80,
         "ignoreComments": true,
         "ignoreRegExpLiterals": true,
@@ -441,84 +441,84 @@ Object {
         "ignoreUrls": true,
       },
     ],
-    "no-bitwise": Array [
+    "no-bitwise": [
       "error",
     ],
-    "no-duplicate-imports": Array [
+    "no-duplicate-imports": [
       "error",
     ],
-    "no-multi-spaces": Array [
+    "no-multi-spaces": [
       "error",
-      Object {
+      {
         "ignoreEOLComments": false,
       },
     ],
-    "no-multiple-empty-lines": Array [
+    "no-multiple-empty-lines": [
       "error",
     ],
-    "no-return-await": Array [
+    "no-return-await": [
       "off",
     ],
-    "no-shadow": Array [
+    "no-shadow": [
       "off",
     ],
-    "no-trailing-spaces": Array [
+    "no-trailing-spaces": [
       "error",
     ],
-    "object-curly-newline": Array [
+    "object-curly-newline": [
       "error",
-      Object {
+      {
         "consistent": true,
         "multiline": true,
       },
     ],
-    "object-curly-spacing": Array [
+    "object-curly-spacing": [
       "error",
       "always",
     ],
-    "object-property-newline": Array [
+    "object-property-newline": [
       "error",
-      Object {
+      {
         "allowAllPropertiesOnSameLine": true,
       },
     ],
-    "quote-props": Array [
+    "quote-props": [
       "error",
       "consistent-as-needed",
     ],
-    "quotes": Array [
+    "quotes": [
       "error",
       "double",
-      Object {
+      {
         "avoidEscape": true,
       },
     ],
-    "semi": Array [
+    "semi": [
       "error",
       "always",
     ],
-    "space-before-blocks": Array [
+    "space-before-blocks": [
       "error",
     ],
   },
-  "settings": Object {
-    "import/parsers": Object {
-      "@typescript-eslint/parser": Array [
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
         ".ts",
         ".tsx",
       ],
     },
-    "import/resolver": Object {
-      "alias": Object {},
-      "node": Object {
-        "extensions": Array [
+    "import/resolver": {
+      "alias": {},
+      "node": {
+        "extensions": [
           ".js",
           ".jsx",
           ".ts",
           ".tsx",
         ],
       },
-      "typescript": Object {
+      "typescript": {
         "alwaysTryTypes": true,
         "project": "tsconfig.json",
       },
@@ -528,15 +528,15 @@ Object {
 `;
 
 exports[`NodeProject creates a generic NodeJS project with Eslint, Jest, and Typescript 3`] = `
-Object {
-  "compilerOptions": Object {
+{
+  "compilerOptions": {
     "alwaysStrict": true,
     "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "lib": Array [
+    "lib": [
       "esnext",
     ],
     "module": "commonjs",
@@ -556,10 +556,10 @@ Object {
     "stripInternal": true,
     "target": "ES6",
   },
-  "exclude": Array [
+  "exclude": [
     "node_modules",
   ],
-  "include": Array [
+  "include": [
     "src/*.ts",
     "src/**/*.ts",
   ],
@@ -567,55 +567,55 @@ Object {
 `;
 
 exports[`NodeProject creates a generic NodeJS project with Jest 1`] = `
-Object {
+{
   "clearMocks": true,
   "collectCoverage": true,
   "coverageDirectory": "coverage",
-  "coveragePathIgnorePatterns": Array [
+  "coveragePathIgnorePatterns": [
     "node_modules",
   ],
-  "coverageReporters": Array [
+  "coverageReporters": [
     "json",
     "text",
   ],
-  "modulePathIgnorePatterns": Array [
+  "modulePathIgnorePatterns": [
     "node_modules",
   ],
-  "reporters": Array [
+  "reporters": [
     "default",
-    Array [
+    [
       "jest-junit",
-      Object {
+      {
         "outputDirectory": "test-reports",
         "outputName": undefined,
       },
     ],
   ],
   "snapshotResolver": undefined,
-  "testMatch": Array [
+  "testMatch": [
     "**/__tests__/?(*.)+(spec|test).[tj]s?(x)",
     "**/__tests__/**/?(*.)+(spec|test).[tj]s?(x)",
     "**/?(*.)+(spec|test).[tj]s?(x)",
   ],
-  "testPathIgnorePatterns": Array [
+  "testPathIgnorePatterns": [
     "node_modules",
   ],
-  "watchPathIgnorePatterns": Array [
+  "watchPathIgnorePatterns": [
     "node_modules",
   ],
 }
 `;
 
 exports[`NodeProject creates a generic NodeJS project with Typescript 1`] = `
-Object {
-  "compilerOptions": Object {
+{
+  "compilerOptions": {
     "alwaysStrict": true,
     "declaration": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "inlineSourceMap": true,
     "inlineSources": true,
-    "lib": Array [
+    "lib": [
       "esnext",
     ],
     "module": "commonjs",
@@ -635,10 +635,10 @@ Object {
     "stripInternal": true,
     "target": "ES6",
   },
-  "exclude": Array [
+  "exclude": [
     "node_modules",
   ],
-  "include": Array [
+  "include": [
     "src/*.ts",
     "src/**/*.ts",
   ],
@@ -646,15 +646,15 @@ Object {
 `;
 
 exports[`NodeProject creates a generic NodeJS project with Yalc 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "devDependencies": Object {
+  "devDependencies": {
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -664,14 +664,14 @@ Object {
   "man": undefined,
   "name": "my-project",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
-  "resolutions": Object {
+  "resolutions": {
     "a": "b",
   },
-  "scripts": Object {
+  "scripts": {
     "yalc": "npx yalc publish",
   },
   "types": undefined,
@@ -680,15 +680,15 @@ Object {
 `;
 
 exports[`NodeProject creates a generic NodeJS project with a license 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "devDependencies": Object {
+  "devDependencies": {
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -699,14 +699,14 @@ Object {
   "man": undefined,
   "name": "my-project",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
-  "resolutions": Object {
+  "resolutions": {
     "a": "b",
   },
-  "scripts": Object {
+  "scripts": {
     "yalc": "npx yalc publish",
   },
   "types": undefined,
@@ -715,15 +715,15 @@ Object {
 `;
 
 exports[`NodeProject creates a generic NodeJS project with overloaded packageName 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "devDependencies": Object {
+  "devDependencies": {
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -733,14 +733,14 @@ Object {
   "man": undefined,
   "name": "@example/test",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
-  "resolutions": Object {
+  "resolutions": {
     "a": "b",
   },
-  "scripts": Object {
+  "scripts": {
     "yalc": "npx yalc publish",
   },
   "types": undefined,

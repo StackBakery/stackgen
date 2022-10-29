@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`YarnProject creates a generic YarnProject 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "devDependencies": Object {
+  "devDependencies": {
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -19,11 +19,11 @@ Object {
   "man": undefined,
   "name": "my-yarn-project",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
-  "resolutions": Object {
+  "resolutions": {
     "a": "b",
   },
   "scripts": undefined,
@@ -33,15 +33,15 @@ Object {
 `;
 
 exports[`YarnProject creates a generic YarnProject with Yalc 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "devDependencies": Object {
+  "devDependencies": {
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -51,14 +51,14 @@ Object {
   "man": undefined,
   "name": "my-yarn-project",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
-  "resolutions": Object {
+  "resolutions": {
     "a": "b",
   },
-  "scripts": Object {
+  "scripts": {
     "yalc": "npx yalc publish",
   },
   "types": undefined,
