@@ -103,6 +103,7 @@ new YarnProject(workspace, "cli", {
     "typescript",
     "ts-node",
     "yargs",
+    "tsx"
   ],
   devDependencies: ["@stackgen/core"],
   peerDependencies: ["@stackgen/core"],
