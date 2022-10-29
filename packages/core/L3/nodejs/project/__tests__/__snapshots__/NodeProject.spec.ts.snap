@@ -256,15 +256,9 @@ exports[`NodeProject creates a generic NodeJS project with Eslint, Jest, and Typ
     "json",
     "text",
   ],
-  "globals": {
-    "ts-jest": {
-      "tsconfig": "tsconfig.json",
-    },
-  },
   "modulePathIgnorePatterns": [
     "node_modules",
   ],
-  "preset": "ts-jest",
   "reporters": [
     "default",
     [
@@ -284,6 +278,14 @@ exports[`NodeProject creates a generic NodeJS project with Eslint, Jest, and Typ
   "testPathIgnorePatterns": [
     "node_modules",
   ],
+  "transform": {
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        "tsconfig": "tsconfig.json",
+      },
+    ],
+  },
   "watchPathIgnorePatterns": [
     "node_modules",
   ],

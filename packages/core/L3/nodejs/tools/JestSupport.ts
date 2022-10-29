@@ -651,12 +651,15 @@ export class JestSupport extends Construct {
           type: PackageDependencyType.DEV,
         });
 
+        // https://kulshekhar.github.io/ts-jest/docs/getting-started/options
         const additionalConfig = {
-          preset: "ts-jest",
-          globals: {
-            "ts-jest": {
-              tsconfig: "tsconfig.json",
-            },
+          transform: {
+            '^.+\\.tsx?$': [
+              'ts-jest',
+              {
+                tsconfig: "tsconfig.json",
+              },
+            ],
           },
         };
 
