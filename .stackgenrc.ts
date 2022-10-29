@@ -84,7 +84,16 @@ new YarnProject(workspace, "core", {
     lineWidth: 140,
     doubleQuotes: true,
   },
-  jest: {},
+  jest: {
+    jestConfig: {
+      // retain compatibility with snapshot format before Jest 29, otherwise there is a huge diff change
+      // See: https://jestjs.io/docs/upgrading-to-jest29#snapshot-format
+      snapshotFormat: {
+        escapeString: true,
+        printBasicPrototype: true,
+      },
+    }
+  },
 });
 
 new YarnProject(workspace, "cli", {
