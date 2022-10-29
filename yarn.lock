@@ -1412,8 +1412,8 @@ __metadata:
   peerDependencies:
     "@stackgen/core": 0.0.1
   bin:
-    sg: index.ts
-    stackgen: index.ts
+    sg: ./dist/index.js
+    stackgen: ./dist/index.js
   languageName: unknown
   linkType: soft
 
