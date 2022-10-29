@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import chalk from "chalk";
+// import chalk from "chalk";
 import glob from "glob";
 import yargs, { CommandModule } from "yargs";
 import { hideBin } from "yargs/helpers";
@@ -25,16 +25,16 @@ const findConfig = () => {
 const config = findConfig();
 
 function wrapCommand<T extends CommandModule>(command: T): T {
-  const handler = command.handler;
+  // const handler = command.handler;
 
-  command.handler = (args) => {
-    try {
-      return handler(args);
-    } catch (err) {
-      console.error(chalk.redBright((err as Error).stack));
-      process.exit(1);
-    }
-  };
+  // command.handler = (args) => {
+  //   try {
+  //     return handler(args);
+  //   } catch (err) {
+  //     console.error(chalk.redBright((err as Error).stack));
+  //     process.exit(1);
+  //   }
+  // };
 
   return command;
 }
