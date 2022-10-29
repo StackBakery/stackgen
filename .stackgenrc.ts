@@ -128,7 +128,7 @@ Bindings
   .of(workspace)
   .filterByClass(Project)
   .filter((project) => !project.isDefaultProject)
-  .forEach((project, i) => {
+  .forEach((project) => {
     new PackageDependency(project, 'tsup', {
       type: PackageDependencyType.DEV
     })
