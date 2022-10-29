@@ -1,5 +1,7 @@
 import { Bindings, ManifestEntry, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
 
+const buildPath = 'dist'
+
 const workspace = new YarnMonoWorkspace({
   author: {
     name: "Justin McCormick",
@@ -50,7 +52,7 @@ new YarnProject(workspace, "core", {
   packageName: "@stackgen/core",
   projectPath: "packages/core",
   sourcePath: ".",
-  buildPath: ".",
+  buildPath,
   dependencies: [
     "case",
     "constructs",
@@ -83,7 +85,7 @@ new YarnProject(workspace, "cli", {
   projectPath: "packages/cli",
   license: "Apache-2.0",
   sourcePath: ".",
-  buildPath: ".",
+  buildPath,
   dependencies: [
     "@types/diff",
     "@types/glob",
@@ -135,7 +137,7 @@ Bindings
 
     new ManifestEntry(project, 'CompileScript', {
       scripts: {
-        compile: 'tsup ./index.ts',
+        compile: `tsup --out-dir ${buildPath} ./index.ts`,
       }
     })
 })
