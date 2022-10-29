@@ -1364,7 +1364,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@stackgen/cli@workspace:packages/cli"
   dependencies:
-    "@stackgen/core": 4.0.0
+    "@stackgen/core": "workspace:packages/core"
     "@types/diff": 5.0.2
     "@types/glob": 8.0.0
     "@types/node": 17.0.45
@@ -1395,14 +1395,14 @@ __metadata:
     typescript: 4.8.4
     yargs: 17.6.0
   peerDependencies:
-    "@stackgen/core": 4.0.0
+    "@stackgen/core": "workspace:packages/core"
   bin:
     sg: index.ts
     stackgen: index.ts
   languageName: unknown
   linkType: soft
 
-"@stackgen/core@4.0.0, @stackgen/core@workspace:*, @stackgen/core@workspace:packages/core":
+"@stackgen/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@stackgen/core@workspace:packages/core"
   dependencies:
@@ -11324,7 +11324,7 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@semantic-release/github": 8.0.6
     "@semantic-release/release-notes-generator": 10.0.3
-    "@stackgen/core": "workspace:*"
+    "@stackgen/core": "workspace:packages/core"
     "@types/jest": 29.2.0
     "@types/mustache": 4.2.1
     "@types/node": 17.0.45
