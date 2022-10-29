@@ -100,11 +100,13 @@ new YarnProject(workspace, "cli", {
     "glob",
     "glob-regex",
     "prompts",
-    "typescript",
     "yargs",
     "tsx"
   ],
-  devDependencies: ["@stackgen/core"],
+  devDependencies: [
+    "typescript",
+    "@stackgen/core"
+  ],
   peerDependencies: ["@stackgen/core"],
   files: ["*.ts", "**/*.ts", "tsconfig.json"],
   scripts: {
