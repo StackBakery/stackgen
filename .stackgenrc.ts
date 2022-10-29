@@ -101,7 +101,6 @@ new YarnProject(workspace, "cli", {
     "glob-regex",
     "prompts",
     "typescript",
-    "ts-node",
     "yargs",
     "tsx"
   ],
