@@ -1,4 +1,4 @@
-import { Bindings, ManifestEntry, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
+import { Bindings, JsonFile, ManifestEntry, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
 
 function workspaceDependency (pkg: string) {
   return {
@@ -130,6 +130,7 @@ new YarnProject(workspace, "cli", {
   },
 });
 
+const eslintWorkingDirectories: string[] = []
 
 Bindings
   .of(workspace)
@@ -145,6 +146,15 @@ Bindings
         compile: 'tsup ./index.ts',
       }
     })
+
+    eslintWorkingDirectories.push(`.${project.projectPath}`)
+})
+
+new JsonFile(workspace.defaultProject, 'VsCodeSettings', {
+  filePath: '.vscode/settings.json',
+  fields: {
+    'eslint.workingDirectories': eslintWorkingDirectories.sort()
+  }
 })
 
 export default workspace;
