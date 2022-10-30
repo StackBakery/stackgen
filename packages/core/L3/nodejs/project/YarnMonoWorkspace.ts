@@ -48,6 +48,7 @@ export class YarnMonoWorkspace extends YarnWorkspace {
        */
       packageFields.addShallowFields({
         bin: undefined,
+        exports: undefined,
         files: undefined,
         main: undefined,
         types: undefined,
