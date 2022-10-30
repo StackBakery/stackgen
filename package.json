@@ -7,8 +7,6 @@
     "email": "me@justinmccormick.com"
   },
   "private": true,
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
   "scripts": {
     "stackgen": "yarn workspace @stackgen/cli run stackgen",
     "sg": "yarn stackgen",
@@ -19,12 +17,6 @@
     "test": "yarn workspaces foreach --verbose -p --topological-dev --exclude \"workspace\" run test",
     "release": "npx multi-semantic-release"
   },
-  "files": [
-    "build/*.js",
-    "build/**/*.js",
-    "build/*.d.ts",
-    "build/**/*.d.ts"
-  ],
   "workspaces": [
     "packages/core",
     "packages/cli"
