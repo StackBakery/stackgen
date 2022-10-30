@@ -1,5 +1,5 @@
 import { Construct } from "constructs";
-import { LifeCycle, LifeCycleStage, Project } from "../../../L1";
+import { IProject, LifeCycle, LifeCycleStage, Project } from "../../../L1";
 import { ManifestEntry } from "../../../L2";
 import { NodeProject } from "./NodeProject";
 import { NodeWorkspaceProps } from "./NodeWorkspace";
@@ -13,10 +13,16 @@ export interface YarnMonoWorkspaceProps extends Omit<YarnProjectProps, "packageN
  * children of this project.
  */
 export class YarnMonoWorkspace extends YarnWorkspace {
+  /**
+   * Default (root) project of the monorepo workspace.
+   */
+  public defaultProject: IProject;
+
   constructor(props?: YarnMonoWorkspaceProps) {
     super(props);
 
     const defaultProject = new YarnProject(this, "Default", { ...props, name: props?.name ?? "workspace" });
+    this.defaultProject = defaultProject;
 
     LifeCycle.implement(this);
     LifeCycle.of(this).on(LifeCycleStage.BEFORE_SYNTH, () => {
