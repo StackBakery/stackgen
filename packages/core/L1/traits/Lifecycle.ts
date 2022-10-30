@@ -4,12 +4,35 @@ import { logger } from "../../util/logger";
 type Callback = () => void;
 
 export enum LifeCycleStage {
-  PREPARE = "Prepare", // Allow constructs time to internally initialize
-  BEFORE_SYNTH = "BeforeSynth", // Allow constructs to interact with eachother post-preparation
-  SYNTH = "Synth", // Allows constructs to finalize their configuration prior to writing
+  /**
+   * Allow constructs time to internally initialize
+   */
+  PREPARE = "Prepare",
+
+  /**
+   * Allow constructs to interact with eachother post-preparation
+   */
+  BEFORE_SYNTH = "BeforeSynth",
+
+  /**
+   * Allows constructs to finalize their configuration prior to writing
+   */
+  SYNTH = "Synth",
+
+  /**
+   *
+   */
   VALIDATE = "Validate",
-  BEFORE_WRITE = "BeforeWrite", // Allows constructs one last chance to finalize prior to disk write
-  WRITE = "Write", // Occurs after the write has occurred
+
+  /**
+   * Allows constructs one last chance to finalize prior to disk write
+   */
+  BEFORE_WRITE = "BeforeWrite",
+
+  /**
+   * Occurs after the write has occurred
+   */
+  WRITE = "Write",
 }
 
 export interface ILifeCycle {}
