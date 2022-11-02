@@ -6,20 +6,20 @@
     "name": "Justin McCormick",
     "email": "me@justinmccormick.com"
   },
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "yalc": "npx yalc publish",
-    "compile": "tsup ./index.ts",
+    "compile": "tsup --out-dir dist ./index.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts .",
     "test": "jest --passWithNoTests --all"
   },
   "files": [
-    "*.js",
-    "**/*.js",
-    "*.d.ts",
-    "**/*.d.ts"
+    "dist/*.js",
+    "dist/**/*.js",
+    "dist/*.d.ts",
+    "dist/**/*.d.ts"
   ],
   "dependencies": {
     "case": "1.6.3",
