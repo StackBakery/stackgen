@@ -146,7 +146,7 @@ Bindings
 
     new ManifestEntry(project, 'CompileScript', {
       scripts: {
-        compile: `tsup --out-dir ${buildPath} ./index.ts`,
+        compile: `tsup --dts --out-dir ${buildPath} ./index.ts`,
       }
     })
 })
