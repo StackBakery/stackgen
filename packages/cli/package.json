@@ -9,8 +9,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "sg": "index.ts",
-    "stackgen": "index.ts"
+    "sg": "./dist/index.js",
+    "stackgen": "./dist/index.js"
   },
   "scripts": {
     "stackgen": "npx npx stackgen",
