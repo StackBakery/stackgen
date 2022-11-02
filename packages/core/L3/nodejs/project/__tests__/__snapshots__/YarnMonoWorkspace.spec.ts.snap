@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`YarnMonoWorkspace creates a generic YarnMonoWorkspace 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "devDependencies": Object {
+  "devDependencies": {
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -19,26 +19,26 @@ Object {
   "man": undefined,
   "name": "workspace",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
-  "resolutions": Object {
+  "resolutions": {
     "a": "b",
   },
   "scripts": undefined,
   "types": undefined,
   "version": "0.0.1",
-  "workspaces": Array [],
+  "workspaces": [],
 }
 `;
 
 exports[`YarnMonoWorkspace with a project 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -48,7 +48,7 @@ Object {
   "man": undefined,
   "name": "my-yarn-project",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
@@ -60,11 +60,11 @@ Object {
 `;
 
 exports[`YarnMonoWorkspace with a project supporting yalc 1`] = `
-Object {
+{
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
-  "files": Array [
+  "files": [
     "build/*.js",
     "build/**/*.js",
   ],
@@ -74,12 +74,12 @@ Object {
   "man": undefined,
   "name": "my-yarn-project",
   "private": true,
-  "repository": Object {
+  "repository": {
     "type": "git",
     "url": "http://localhost",
   },
   "resolutions": undefined,
-  "scripts": Object {
+  "scripts": {
     "yalc": "npx yalc publish",
   },
   "types": undefined,
