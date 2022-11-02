@@ -433,6 +433,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild-kit/cjs-loader@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "@esbuild-kit/cjs-loader@npm:2.4.0"
+  dependencies:
+    "@esbuild-kit/core-utils": ^3.0.0
+    get-tsconfig: ^4.2.0
+  checksum: 267aef1c921317daa40345d2a58fb5482bf69cf32949458af2d78dbeeaf527860928111c550fbaa30f0c710314f9c2e1cec703f8104a6b5464c35e9692ba7cdf
+  languageName: node
+  linkType: hard
+
+"@esbuild-kit/core-utils@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@esbuild-kit/core-utils@npm:3.0.0"
+  dependencies:
+    esbuild: ~0.15.10
+    source-map-support: ^0.5.21
+  checksum: 0e89ec718e2211bf95c48a8085aaef88e8e416f42abd1c62d488d5458eecd3fbc144179a0c5570ad36fa7e2d3bbc411f8d3fb28802c37ced2154dc2c6ded9dfe
+  languageName: node
+  linkType: hard
+
+"@esbuild-kit/esm-loader@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@esbuild-kit/esm-loader@npm:2.5.0"
+  dependencies:
+    "@esbuild-kit/core-utils": ^3.0.0
+    get-tsconfig: ^4.2.0
+  checksum: 49611646f8b02ff7b41e6aacae797c4aae9edbf7c73f2c8a5ea43208e317473005930b8751749b607089110e5b93a52059b6cab4fff8e32b6acdb1811529a8d8
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm@npm:0.15.12":
   version: 0.15.12
   resolution: "@esbuild/android-arm@npm:0.15.12"
@@ -1407,6 +1437,7 @@ __metadata:
     shell-escape: 0.2.0
     ts-node: 10.9.1
     tsup: 6.3.0
+    tsx: 3.11.0
     typescript: 4.8.4
     yargs: 17.6.0
   peerDependencies:
@@ -4177,7 +4208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.15.1":
+"esbuild@npm:^0.15.1, esbuild@npm:~0.15.10":
   version: 0.15.12
   resolution: "esbuild@npm:0.15.12"
   dependencies:
@@ -5167,6 +5198,13 @@ __metadata:
     call-bind: ^1.0.2
     get-intrinsic: ^1.1.1
   checksum: 9ceff8fe968f9270a37a1f73bf3f1f7bda69ca80f4f80850670e0e7b9444ff99323f7ac52f96567f8b5f5fbe7ac717a0d81d3407c7313e82810c6199446a5247
+  languageName: node
+  linkType: hard
+
+"get-tsconfig@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "get-tsconfig@npm:4.2.0"
+  checksum: dfae3520bee20b71a651fdc93fd29901013dfc4df9fb41a423cf3efb4468c79087ef9d3bc3d0625b6486397730991d2a749eed4985d8ab411f481319c3e931e5
   languageName: node
   linkType: hard
 
@@ -10288,7 +10326,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.6":
+"source-map-support@npm:^0.5.21, source-map-support@npm:^0.5.6":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -11227,6 +11265,23 @@ __metadata:
   peerDependencies:
     typescript: ">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
   checksum: 1843f4c1b2e0f975e08c4c21caa4af4f7f65a12ac1b81b3b8489366826259323feb3fc7a243123453d2d1a02314205a7634e048d4a8009921da19f99755cdc48
+  languageName: node
+  linkType: hard
+
+"tsx@npm:3.11.0":
+  version: 3.11.0
+  resolution: "tsx@npm:3.11.0"
+  dependencies:
+    "@esbuild-kit/cjs-loader": ^2.4.0
+    "@esbuild-kit/core-utils": ^3.0.0
+    "@esbuild-kit/esm-loader": ^2.5.0
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    tsx: dist/cli.js
+  checksum: 07b5230d1bd5242eac13915553564721c5e879e6827ddfd18dbfff297dea96dcf8ec5671071679b9df8697612e8c57e5685b60af09a499f67391df919a60f682
   languageName: node
   linkType: hard
 
