@@ -49,7 +49,7 @@ Object {
     "test": "./myTestScript.sh",
   },
   "types": undefined,
-  "version": "3.0.11",
+  "version": "0.0.1",
 }
 `;
 
@@ -675,7 +675,7 @@ Object {
     "yalc": "npx yalc publish",
   },
   "types": undefined,
-  "version": "3.0.11",
+  "version": "0.0.1",
 }
 `;
 
@@ -710,7 +710,7 @@ Object {
     "yalc": "npx yalc publish",
   },
   "types": undefined,
-  "version": "3.0.11",
+  "version": "0.0.1",
 }
 `;
 
@@ -744,6 +744,6 @@ Object {
     "yalc": "npx yalc publish",
   },
   "types": undefined,
-  "version": "3.0.11",
+  "version": "0.0.1",
 }
 `;
