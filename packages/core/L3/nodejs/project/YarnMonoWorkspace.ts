@@ -1,5 +1,5 @@
 import { Construct } from "constructs";
-import { IProject, LifeCycle, LifeCycleStage, Fields, Project } from "../../../L1";
+import { IProject, Fields, LifeCycle, LifeCycleStage, Project } from "../../../L1";
 import { ManifestEntry } from "../../../L2";
 import { NodeProject } from "./NodeProject";
 import { NodeWorkspaceProps } from "./NodeWorkspace";
@@ -33,6 +33,22 @@ export class YarnMonoWorkspace extends YarnWorkspace {
        */
       packageFields.addShallowFields({
         bin: undefined,
+        files: undefined,
+        main: undefined,
+        types: undefined,
+      });
+    });
+
+    LifeCycle.of(defaultProject.packageJson).on(LifeCycleStage.BEFORE_WRITE, () => {
+      const packageFields = Fields.of(defaultProject.packageJson);
+
+      /**
+       * Removes fields related to package publishing from private packages that are not
+       * meant to be published.
+       */
+      packageFields.addShallowFields({
+        bin: undefined,
+        exports: undefined,
         files: undefined,
         main: undefined,
         types: undefined,

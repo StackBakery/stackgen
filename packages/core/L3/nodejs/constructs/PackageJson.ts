@@ -14,6 +14,7 @@ export interface NodePackageJsonProps {
   readonly repository?: string | { readonly type: string; readonly url: string };
   readonly keywords?: string[];
   readonly main?: string;
+  readonly exports?: Record<string, string>;
   readonly types?: string;
   readonly bin?: Record<string, string>;
   readonly scripts?: Record<string, string>;
@@ -37,6 +38,7 @@ const packageOrdering = [
   "bugs",
   "private",
   "main",
+  "exports",
   "types",
   "bin",
   "man",
@@ -76,6 +78,12 @@ export class PackageJson extends Manifest {
         repository: props.repository,
         keywords: props.keywords,
         main: props.main ?? `${project.buildPath}/index.js`,
+        exports:
+          // https://nodejs.org/api/packages.html#package-entry-points
+          props.exports ??
+          // fallback to exports sugar with a single option
+          // https://nodejs.org/api/packages.html#exports-sugar
+          `${project.buildPath}/index.js`,
         bin: props.bin,
         scripts: props.scripts,
         bugs: props.bugs,
