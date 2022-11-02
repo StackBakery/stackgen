@@ -7,6 +7,7 @@
     "email": "me@justinmccormick.com"
   },
   "main": "dist/index.js",
+  "exports": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
     "sg": "./dist/index.js",
