@@ -1686,7 +1686,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stackgen/cli@workspace:packages/cli":
+"@stackgen/cli@0.0.1, @stackgen/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@stackgen/cli@workspace:packages/cli"
   dependencies:
@@ -1725,12 +1725,12 @@ __metadata:
   peerDependencies:
     "@stackgen/core": "workspace:packages/core"
   bin:
-    sg: ./dist/index.js
-    stackgen: ./dist/index.js
+    sg: ././dist/index.js
+    stackgen: ././dist/index.js
   languageName: unknown
   linkType: soft
 
-"@stackgen/core@workspace:packages/core":
+"@stackgen/core@0.0.1, @stackgen/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@stackgen/core@workspace:packages/core"
   dependencies:
@@ -10434,6 +10434,33 @@ __metadata:
   checksum: 76b69da0f5b48a34a0f93c98ee2a96544d2c4ca2557f7eef5ddb961d3bdc33870b46f498a84a7c4f4ffb781df639840e7ebf6639164ed4da5e1aeb659615b9c7
   languageName: node
   linkType: hard
+
+"stackgen@workspace:packages/stackgen":
+  version: 0.0.0-use.local
+  resolution: "stackgen@workspace:packages/stackgen"
+  dependencies:
+    "@stackgen/cli": 0.0.1
+    "@stackgen/core": 0.0.1
+    "@types/jest": 29.2.0
+    "@types/node": 17.0.45
+    "@typescript-eslint/eslint-plugin": 5.41.0
+    "@typescript-eslint/parser": 5.41.0
+    eslint: 8.26.0
+    eslint-config-prettier: 8.5.0
+    eslint-import-resolver-alias: 1.1.2
+    eslint-import-resolver-node: 0.3.6
+    eslint-import-resolver-typescript: 2.7.1
+    eslint-plugin-import: 2.26.0
+    eslint-plugin-prettier: 4.2.1
+    jest: 29.2.2
+    jest-junit: ^13
+    prettier: 2.7.1
+    ts-jest: 29.0.3
+    ts-node: 10.9.1
+    tsup: 6.3.0
+    typescript: 4.8.4
+  languageName: unknown
+  linkType: soft
 
 "stream-buffers@npm:^3.0.2":
   version: 3.0.2

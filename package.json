@@ -11,7 +11,7 @@
     "stackgen": "yarn workspace @stackgen/cli run stackgen",
     "sg": "yarn stackgen",
     "build": "yarn compile",
-    "compile": "yarn workspaces foreach --verbose -p --topological-dev --no-private run compile",
+    "compile": "yarn clean && yarn workspaces foreach --verbose -p --topological-dev --no-private run compile",
     "clean": "yarn workspaces foreach --verbose -p --topological-dev --no-private run clean",
     "lint": "yarn workspaces foreach --verbose -p --topological-dev --exclude \"workspace\" run lint",
     "test": "yarn workspaces foreach --verbose -p --topological-dev --exclude \"workspace\" run test",
@@ -19,7 +19,8 @@
   },
   "workspaces": [
     "packages/core",
-    "packages/cli"
+    "packages/cli",
+    "packages/stackgen"
   ],
   "dependencies": {
     "mustache": "4.2.0"

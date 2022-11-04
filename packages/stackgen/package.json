@@ -1,5 +1,5 @@
 {
-  "name": "@stackgen/core",
+  "name": "stackgen",
   "license": "Apache-2.0",
   "version": "0.0.1",
   "author": {
@@ -7,21 +7,10 @@
     "email": "me@justinmccormick.com"
   },
   "main": "./dist/index.js",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./util/logger": {
-      "require": "./dist/util/logger.js",
-      "types": "./dist/util/logger.d.ts"
-    }
-  },
+  "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "yalc": "npx yalc publish",
-    "precompile": "yarn clean",
-    "compile": "tsup --dts --out-dir ./dist --entry ./index.ts --entry ./util/logger.ts",
+    "compile": "tsup --dts --out-dir ./dist ./index.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts .",
     "test": "jest --passWithNoTests --all"
@@ -33,26 +22,12 @@
     "dist/**/*.d.ts"
   ],
   "dependencies": {
-    "case": "1.6.3",
-    "constructs": "10.1.142",
-    "deepmerge": "4.2.2",
-    "dependency-graph": "0.11.0",
-    "js-yaml": "4.1.0",
-    "md5-file": "5.0.0",
-    "memfs": "3.4.8",
-    "mustache": "4.2.0",
-    "object-hash": "3.0.0",
-    "spdx-license-list": "6.6.0",
-    "sync-request": "6.1.0",
-    "winston": "3.8.2"
+    "@stackgen/cli": "0.0.1",
+    "@stackgen/core": "0.0.1"
   },
   "devDependencies": {
     "@types/jest": "29.2.0",
-    "@types/js-yaml": "4.0.5",
-    "@types/mustache": "4.2.1",
     "@types/node": "17.0.45",
-    "@types/object-hash": "2.2.1",
-    "@types/winston": "2.4.4",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
     "eslint": "8.26.0",

@@ -6,17 +6,17 @@
     "name": "Justin McCormick",
     "email": "me@justinmccormick.com"
   },
-  "main": "dist/index.js",
-  "exports": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "sg": "./dist/index.js",
-    "stackgen": "./dist/index.js"
+    "sg": "././dist/index.js",
+    "stackgen": "././dist/index.js"
   },
   "scripts": {
     "stackgen": "npx npx stackgen",
     "yalc": "npx yalc publish",
-    "compile": "tsup --dts --out-dir dist ./index.ts",
+    "compile": "tsup --dts --out-dir ./dist ./index.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts ."
   },
