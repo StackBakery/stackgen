@@ -1,6 +1,7 @@
 {
   "eslint.workingDirectories": [
     "./packages/cli",
-    "./packages/core"
+    "./packages/core",
+    "./packages/stackgen"
   ]
 }

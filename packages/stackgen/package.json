@@ -1,5 +1,5 @@
 {
-  "name": "@stackgen/cli",
+  "name": "stackgen",
   "license": "Apache-2.0",
   "version": "0.0.1",
   "author": {
@@ -9,45 +9,24 @@
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "bin": {
-    "sg": "./dist/index.js",
-    "stackgen": "./dist/index.js"
-  },
   "scripts": {
-    "stackgen": "npx npx stackgen",
-    "yalc": "npx yalc publish",
     "compile": "tsup --dts --out-dir ./dist ./index.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
-    "lint": "eslint --ext .ts ."
+    "lint": "eslint --ext .ts .",
+    "test": "jest --passWithNoTests --all"
   },
   "files": [
-    "*.ts",
-    "**/*.ts",
-    "tsconfig.json",
+    "dist/*.js",
+    "dist/**/*.js",
     "dist/*.d.ts",
     "dist/**/*.d.ts"
   ],
   "dependencies": {
-    "@types/diff": "5.0.2",
-    "@types/glob": "8.0.0",
-    "@types/ora": "3.2.0",
-    "@types/prompts": "2.4.1",
-    "@types/shell-escape": "0.2.1",
-    "@types/yargs": "17.0.13",
-    "chalk": "^4.1.2",
-    "constructs": "10.1.142",
-    "dependency-graph": "0.11.0",
-    "diff": "5.1.0",
-    "glob": "8.0.3",
-    "glob-regex": "0.3.2",
-    "ora": "^5.4.1",
-    "prompts": "2.4.2",
-    "shell-escape": "0.2.0",
-    "tsx": "3.11.0",
-    "yargs": "17.6.0"
+    "@stackgen/cli": "0.0.1",
+    "@stackgen/core": "0.0.1"
   },
   "devDependencies": {
-    "@stackgen/core": "workspace:packages/core",
+    "@types/jest": "29.2.0",
     "@types/node": "17.0.45",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
@@ -58,13 +37,13 @@
     "eslint-import-resolver-typescript": "2.7.1",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-prettier": "4.2.1",
+    "jest": "29.2.2",
+    "jest-junit": "^13",
     "prettier": "2.7.1",
+    "ts-jest": "29.0.3",
     "ts-node": "10.9.1",
     "tsup": "6.3.0",
     "typescript": "4.8.4"
-  },
-  "peerDependencies": {
-    "@stackgen/core": "workspace:packages/core"
   },
   "prettier": {
     "printWidth": 140,
@@ -74,7 +53,7 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "jest": false,
+      "jest": true,
       "node": true
     },
     "parser": "@typescript-eslint/parser",
@@ -313,5 +292,48 @@
         }
       }
     ]
+  },
+  "jest": {
+    "clearMocks": true,
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "text"
+    ],
+    "coverageDirectory": "coverage",
+    "coveragePathIgnorePatterns": [
+      "node_modules"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules"
+    ],
+    "modulePathIgnorePatterns": [
+      "node_modules"
+    ],
+    "watchPathIgnorePatterns": [
+      "node_modules"
+    ],
+    "testMatch": [
+      "**/__tests__/?(*.)+(spec|test).[tj]s?(x)",
+      "**/__tests__/**/?(*.)+(spec|test).[tj]s?(x)",
+      "**/?(*.)+(spec|test).[tj]s?(x)"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "test-reports"
+        }
+      ]
+    ],
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.json"
+        }
+      ]
+    }
   }
 }

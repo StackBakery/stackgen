@@ -1,12 +1,22 @@
-import { Bindings, JsonFile, ManifestEntry, PackageDependency, PackageDependencyType, Project, SemanticReleaseSupport, YarnMonoWorkspace, YarnProject } from "@stackgen/core";
+import {
+  Bindings,
+  JsonFile,
+  ManifestEntry,
+  PackageDependency,
+  PackageDependencyType,
+  Project,
+  SemanticReleaseSupport,
+  YarnMonoWorkspace,
+  YarnProject,
+} from "@stackgen/core";
 
-const buildPath = 'dist'
+const buildPath = "./dist";
 
-function workspaceDependency (pkg: string) {
+function workspaceDependency(pkg: string) {
   return {
-    name: ['@stackgen', pkg].join('/'),
-    version: ['workspace:packages', pkg].join('/'),
-  }
+    name: ["@stackgen", pkg].join("/"),
+    version: ["workspace:packages", pkg].join("/"),
+  };
 }
 
 const workspace = new YarnMonoWorkspace({
@@ -17,19 +27,12 @@ const workspace = new YarnMonoWorkspace({
   license: "Apache-2.0",
   dependencies: ["mustache"],
   disableAutoLib: true,
-  devDependencies: [
-    workspaceDependency('core'),
-    "@types/mustache",
-    "@types/node",
-    "prettier",
-    "ts-node",
-    "typescript",
-  ],
+  devDependencies: [workspaceDependency("core"), "@types/mustache", "@types/node", "prettier", "ts-node", "typescript"],
   scripts: {
     stackgen: "yarn workspace @stackgen/cli run stackgen",
     sg: "yarn stackgen",
     build: "yarn compile",
-    compile: "yarn workspaces foreach --verbose -p --topological-dev --no-private run compile",
+    compile: "yarn clean && yarn workspaces foreach --verbose -p --topological-dev --no-private run compile",
     clean: "yarn workspaces foreach --verbose -p --topological-dev --no-private run clean",
     // lint: "yarn workspaces foreach --verbose -p --topological-dev --no-private run lint",
     // "lint:fix": "yarn workspaces foreach --verbose -p --topological-dev --no-private run lint --fix",
@@ -60,6 +63,16 @@ new YarnProject(workspace, "core", {
   projectPath: "packages/core",
   sourcePath: ".",
   buildPath,
+  exports: {
+    ".": {
+      require: buildPath + "/index.js",
+      types: buildPath + "/index.d.ts",
+    },
+    "./util/logger": {
+      require: buildPath + "/util/logger.js",
+      types: buildPath + "/util/logger.d.ts",
+    },
+  },
   dependencies: [
     "case",
     "constructs",
@@ -76,6 +89,8 @@ new YarnProject(workspace, "core", {
   ],
   scripts: {
     yalc: "npx yalc publish",
+    precompile: "yarn clean",
+    compile: `tsup --dts --out-dir ${buildPath} --entry ./index.ts --entry ./util/logger.ts`,
   },
   devDependencies: ["@types/mustache", "@types/js-yaml", "@types/object-hash", "@types/winston"],
   typescript: {},
@@ -110,22 +125,20 @@ new YarnProject(workspace, "cli", {
     "glob-regex",
     "prompts",
     "yargs",
-    "tsx"
+    "tsx",
   ],
-  devDependencies: [
-    "typescript",
-    workspaceDependency('core'),
-  ],
-  peerDependencies: [workspaceDependency('core')],
+  devDependencies: ["typescript", workspaceDependency("core")],
+  peerDependencies: [workspaceDependency("core")],
   files: ["*.ts", "**/*.ts", "tsconfig.json"],
   scripts: {
     stackgen: "npx npx stackgen",
     yalc: "npx yalc publish",
   },
   bin: {
-    sg: `./${buildPath}/index.js`,
-    stackgen: `./${buildPath}/index.js`,
+    sg: `${buildPath}/index.js`,
+    stackgen: `${buildPath}/index.js`,
   },
+  types: "",
   typescript: {},
   eslint: {
     prettier: {},
@@ -134,31 +147,46 @@ new YarnProject(workspace, "cli", {
   },
 });
 
-const eslintWorkingDirectories: string[] = []
+new YarnProject(workspace, "stackgen", {
+  license: "Apache-2.0",
+  packageName: "stackgen",
+  projectPath: "packages/stackgen",
+  sourcePath: ".",
+  buildPath,
+  dependencies: ["@stackgen/core", "@stackgen/cli"],
+  typescript: {},
+  eslint: {
+    prettier: {},
+    lineWidth: 140,
+    doubleQuotes: true,
+  },
+  jest: {},
+});
 
-Bindings
-  .of(workspace)
+const eslintWorkingDirectories: string[] = [];
+
+Bindings.of(workspace)
   .filterByClass(Project)
   .filter((project) => !project.isDefaultProject)
   .forEach((project) => {
-    new PackageDependency(project, 'tsup', {
-      type: PackageDependencyType.DEV
-    })
+    new PackageDependency(project, "tsup", {
+      type: PackageDependencyType.DEV,
+    });
 
-    new ManifestEntry(project, 'CompileScript', {
+    new ManifestEntry(project, "CompileScript", {
       scripts: {
         compile: `tsup --dts --out-dir ${buildPath} ./index.ts`,
-      }
-    })
+      },
+    });
 
-    eslintWorkingDirectories.push(`.${project.projectPath}`)
-})
+    eslintWorkingDirectories.push(`.${project.projectPath}`);
+  });
 
-new JsonFile(workspace.defaultProject, 'VsCodeSettings', {
-  filePath: '.vscode/settings.json',
+new JsonFile(workspace.defaultProject, "VsCodeSettings", {
+  filePath: ".vscode/settings.json",
   fields: {
-    'eslint.workingDirectories': eslintWorkingDirectories.sort()
-  }
-})
+    "eslint.workingDirectories": eslintWorkingDirectories.sort(),
+  },
+});
 
 export default workspace;

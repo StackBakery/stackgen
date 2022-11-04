@@ -6,12 +6,22 @@
     "name": "Justin McCormick",
     "email": "me@justinmccormick.com"
   },
-  "main": "dist/index.js",
-  "exports": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./util/logger": {
+      "require": "./dist/util/logger.js",
+      "types": "./dist/util/logger.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "yalc": "npx yalc publish",
-    "compile": "tsup --dts --out-dir dist ./index.ts",
+    "precompile": "yarn clean",
+    "compile": "tsup --dts --out-dir ./dist --entry ./index.ts --entry ./util/logger.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts .",
     "test": "jest --passWithNoTests --all"
