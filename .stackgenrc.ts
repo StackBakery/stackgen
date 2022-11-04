@@ -135,8 +135,8 @@ new YarnProject(workspace, "cli", {
     yalc: "npx yalc publish",
   },
   bin: {
-    sg: `./${buildPath}/index.js`,
-    stackgen: `./${buildPath}/index.js`,
+    sg: `${buildPath}/index.js`,
+    stackgen: `${buildPath}/index.js`,
   },
   types: "",
   typescript: {},
