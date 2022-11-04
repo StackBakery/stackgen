@@ -10,8 +10,8 @@
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "sg": "././dist/index.js",
-    "stackgen": "././dist/index.js"
+    "sg": "./dist/index.js",
+    "stackgen": "./dist/index.js"
   },
   "scripts": {
     "stackgen": "npx npx stackgen",
