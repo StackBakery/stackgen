@@ -78,7 +78,7 @@ export const handler = async function ({ dryrun }: { config: string; dryrun: boo
   }
 
   const template = `
-import { YarnTypescriptWorkspace } from "@stackgen/nodejs";
+import { YarnTypescriptWorkspace } from "@stackgen/core";
 
 new YarnTypescriptWorkspace("${packageConfig.name.split("/").reverse()[0]}", ${JSON.stringify(packageConfig, undefined, 2)});
 `;
