@@ -9,6 +9,7 @@ exports[`YarnProject creates a generic YarnProject 1`] = `
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",
@@ -41,6 +42,7 @@ exports[`YarnProject creates a generic YarnProject with Yalc 1`] = `
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",
