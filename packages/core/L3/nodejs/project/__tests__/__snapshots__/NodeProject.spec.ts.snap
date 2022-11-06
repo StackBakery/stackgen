@@ -24,6 +24,7 @@ exports[`NodeProject creates a generic NodeJS project 1`] = `
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",
@@ -656,6 +657,7 @@ exports[`NodeProject creates a generic NodeJS project with Yalc 1`] = `
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",
@@ -690,6 +692,7 @@ exports[`NodeProject creates a generic NodeJS project with a license 1`] = `
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",
@@ -725,6 +728,7 @@ exports[`NodeProject creates a generic NodeJS project with overloaded packageNam
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",

@@ -23,8 +23,11 @@ describe("YarnMonoWorkspace", () => {
     expect(fields.name).toBe("workspace");
     expect(fields.description).toBe("MyDescription");
     expect(fields.private).toBe(true);
-    expect(fields.main).toBe("build/index.js");
-    expect(fields.files).toStrictEqual(["build/*.js", "build/**/*.js"]);
+    expect(fields.bin).toBeUndefined();
+    expect(fields.exports).toBeUndefined();
+    expect(fields.files).toBeUndefined();
+    expect(fields.main).toBeUndefined();
+    expect(fields.types).toBeUndefined();
     expect(fields.devDependencies).toStrictEqual({ "@stackgen/cli": "*", "@stackgen/core": "*" });
     expect(fields.resolutions).toStrictEqual({ a: "b" });
     expect(fields.repository).toStrictEqual({

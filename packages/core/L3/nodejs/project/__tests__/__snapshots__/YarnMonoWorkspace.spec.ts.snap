@@ -9,13 +9,11 @@ exports[`YarnMonoWorkspace creates a generic YarnMonoWorkspace 1`] = `
     "@stackgen/cli": "*",
     "@stackgen/core": "*",
   },
-  "files": [
-    "build/*.js",
-    "build/**/*.js",
-  ],
+  "exports": undefined,
+  "files": undefined,
   "homepath": undefined,
   "keywords": undefined,
-  "main": "build/index.js",
+  "main": undefined,
   "man": undefined,
   "name": "workspace",
   "private": true,
@@ -38,6 +36,7 @@ exports[`YarnMonoWorkspace with a project 1`] = `
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",
@@ -64,6 +63,7 @@ exports[`YarnMonoWorkspace with a project supporting yalc 1`] = `
   "bin": undefined,
   "bugs": undefined,
   "description": "MyDescription",
+  "exports": "build/index.js",
   "files": [
     "build/*.js",
     "build/**/*.js",
