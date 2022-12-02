@@ -3,8 +3,8 @@
   "license": "Apache-2.0",
   "version": "0.0.1",
   "author": {
-    "name": "Justin McCormick",
-    "email": "me@justinmccormick.com"
+    "name": "Stackgen",
+    "email": "team@stackgen.dev"
   },
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
@@ -14,11 +14,11 @@
     "stackgen": "./dist/index.js"
   },
   "scripts": {
-    "stackgen": "npx npx stackgen",
+    "stackgen": "npx tsx stackgen",
     "yalc": "npx yalc publish",
     "compile": "tsup --dts --out-dir ./dist ./index.ts",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
-    "lint": "eslint --ext .ts ."
+    "lint": "eslint --ext .ts src"
   },
   "files": [
     "*.ts",
