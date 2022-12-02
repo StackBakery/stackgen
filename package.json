@@ -3,8 +3,8 @@
   "license": "Apache-2.0",
   "version": "0.0.0",
   "author": {
-    "name": "Justin McCormick",
-    "email": "me@justinmccormick.com"
+    "name": "Stackgen",
+    "email": "team@stackgen.dev"
   },
   "private": true,
   "scripts": {

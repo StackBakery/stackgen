@@ -3,8 +3,8 @@
     "node_modules"
   ],
   "include": [
-    "*.ts",
-    "**/*.ts"
+    "src/*.ts",
+    "src/**/*.ts"
   ],
   "compilerOptions": {
     "outDir": "./dist",

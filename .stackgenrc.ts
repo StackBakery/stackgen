@@ -12,6 +12,11 @@ import {
 
 const buildPath = "./dist";
 
+const tsCompilerPaths = {
+  "@stackgen/core": ["../core"],
+  "@stackgen/core/*": ["../core/src/*"],
+};
+
 function workspaceDependency(pkg: string) {
   return {
     name: ["@stackgen", pkg].join("/"),
@@ -21,8 +26,8 @@ function workspaceDependency(pkg: string) {
 
 const workspace = new YarnMonoWorkspace({
   author: {
-    name: "Justin McCormick",
-    email: "me@justinmccormick.com",
+    name: "Stackgen",
+    email: "team@stackgen.dev",
   },
   license: "Apache-2.0",
   dependencies: ["mustache"],
@@ -61,16 +66,16 @@ new YarnProject(workspace, "core", {
   license: "Apache-2.0",
   packageName: "@stackgen/core",
   projectPath: "packages/core",
-  sourcePath: ".",
+  sourcePath: "src",
   buildPath,
   exports: {
     ".": {
-      require: buildPath + "/index.js",
-      types: buildPath + "/index.d.ts",
+      require: `${buildPath}/index.js`,
+      types: `${buildPath}/index.d.ts`,
     },
     "./util/logger": {
-      require: buildPath + "/util/logger.js",
-      types: buildPath + "/util/logger.d.ts",
+      require: `${buildPath}/util/logger.js`,
+      types: `${buildPath}/util/logger.d.ts`,
     },
   },
   dependencies: [
@@ -90,7 +95,7 @@ new YarnProject(workspace, "core", {
   scripts: {
     yalc: "npx yalc publish",
     precompile: "yarn clean",
-    compile: `tsup --dts --out-dir ${buildPath} --entry ./index.ts --entry ./util/logger.ts`,
+    compile: `tsup --dts --out-dir ${buildPath} --entry ./src/index.ts --entry ./src/util/logger.ts`,
   },
   devDependencies: ["@types/mustache", "@types/js-yaml", "@types/object-hash", "@types/winston"],
   typescript: {},
@@ -106,7 +111,7 @@ new YarnProject(workspace, "cli", {
   packageName: "@stackgen/cli",
   projectPath: "packages/cli",
   license: "Apache-2.0",
-  sourcePath: ".",
+  sourcePath: "src",
   buildPath,
   dependencies: [
     "@types/diff",
@@ -131,7 +136,7 @@ new YarnProject(workspace, "cli", {
   peerDependencies: [workspaceDependency("core")],
   files: ["*.ts", "**/*.ts", "tsconfig.json"],
   scripts: {
-    stackgen: "npx npx stackgen",
+    stackgen: "npx tsx stackgen",
     yalc: "npx yalc publish",
   },
   bin: {
@@ -139,7 +144,13 @@ new YarnProject(workspace, "cli", {
     stackgen: `${buildPath}/index.js`,
   },
   types: "",
-  typescript: {},
+  typescript: {
+    include: ["index.ts", "stackgen.ts", "src"],
+    compilerOptions: {
+      baseUrl: ".",
+      paths: tsCompilerPaths,
+    },
+  },
   eslint: {
     prettier: {},
     lineWidth: 140,
@@ -151,10 +162,16 @@ new YarnProject(workspace, "stackgen", {
   license: "Apache-2.0",
   packageName: "stackgen",
   projectPath: "packages/stackgen",
-  sourcePath: ".",
+  sourcePath: "src",
   buildPath,
   dependencies: ["@stackgen/core", "@stackgen/cli"],
-  typescript: {},
+  typescript: {
+    include: ["index.ts"],
+    compilerOptions: {
+      baseUrl: ".",
+      paths: tsCompilerPaths,
+    },
+  },
   eslint: {
     prettier: {},
     lineWidth: 140,
