@@ -1,5 +1,4 @@
 import { Construct } from "constructs";
-import { Bindings, Project } from "../../../../L1";
 import { ManifestEntry } from "../../../../L2/constructs/ManifestEntry";
 import { PackageDependency, PackageDependencyType } from "../../constructs";
 
@@ -40,24 +39,6 @@ export interface TsupSupportProps {
 }
 
 export class TsupSupport extends Construct {
-  public static hasSupport(construct: Construct) {
-    return !!this.tryOf(construct);
-  }
-
-  public static of(construct: Construct) {
-    const ret = this.tryOf(construct);
-
-    if (!ret) {
-      throw new Error(`Construct ${construct} does not have ${TsupSupport.name}`);
-    }
-
-    return ret;
-  }
-
-  public static tryOf(construct: Construct) {
-    return Bindings.of(Project.of(construct)).findByClass<TsupSupport>(TsupSupport);
-  }
-
   constructor(scope: Construct, id: string, props: TsupSupportProps = {}) {
     super(scope, id);
 
