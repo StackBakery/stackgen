@@ -426,7 +426,7 @@ export class TypescriptSupport extends Construct {
           compile: "tsc -p ./tsconfig.json",
         },
       });
-      new CleanScriptPath(this, "CleanTsc", project.buildPath);
+      new CleanScriptPath(this, "CleanTsBuild", project.buildPath);
     }
 
     const mainEntrypoint = (Fields.of(project.packageJson).fields.main as string) ?? path.join(project.buildPath, "index.ts");
