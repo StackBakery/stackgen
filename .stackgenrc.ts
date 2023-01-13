@@ -139,7 +139,7 @@ const cli = new YarnProject(workspace, "cli", {
   peerDependencies: [workspaceDependency("core")],
   files: ["*.ts", "**/*.ts", "tsconfig.json"],
   scripts: {
-    stackgen: "npx tsx stackgen",
+    stackgen: "tsx src/",
     yalc: "npx yalc publish",
   },
   bin: {

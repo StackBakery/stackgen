@@ -14,7 +14,7 @@
     "stackgen": "./dist/index.js"
   },
   "scripts": {
-    "stackgen": "npx tsx stackgen",
+    "stackgen": "tsx src/",
     "yalc": "npx yalc publish",
     "compile": "tsup",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
