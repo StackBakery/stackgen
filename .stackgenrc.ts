@@ -1,9 +1,9 @@
 import {
   Bindings,
   JsonFile,
-  ManifestEntry,
-  PackageDependency,
-  PackageDependencyType,
+  // ManifestEntry,
+  // PackageDependency,
+  // PackageDependencyType,
   Project,
   SemanticReleaseSupport,
   YarnMonoWorkspace,
@@ -95,7 +95,7 @@ new YarnProject(workspace, "core", {
   scripts: {
     yalc: "npx yalc publish",
     precompile: "yarn clean",
-    compile: `tsup --dts --out-dir ${buildPath} --entry ./src/index.ts --entry ./src/util/logger.ts`,
+    // compile: `tsup --dts --out-dir ${buildPath} --entry ./src/index.ts --entry ./src/util/logger.ts`,
   },
   devDependencies: ["@types/mustache", "@types/js-yaml", "@types/object-hash", "@types/winston"],
   typescript: {},
@@ -186,15 +186,15 @@ Bindings.of(workspace)
   .filterByClass(Project)
   .filter((project) => !project.isDefaultProject)
   .forEach((project) => {
-    new PackageDependency(project, "tsup", {
-      type: PackageDependencyType.DEV,
-    });
+    // new PackageDependency(project, "tsup", {
+    //   type: PackageDependencyType.DEV,
+    // });
 
-    new ManifestEntry(project, "CompileScript", {
-      scripts: {
-        compile: `tsup --dts --out-dir ${buildPath} ./index.ts`,
-      },
-    });
+    // new ManifestEntry(project, "CompileScript", {
+    //   scripts: {
+    //     compile: `tsup --dts --out-dir ${buildPath} ./index.ts`,
+    //   },
+    // });
 
     eslintWorkingDirectories.push(`.${project.projectPath}`);
   });

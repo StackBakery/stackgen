@@ -21,7 +21,7 @@
   "scripts": {
     "yalc": "npx yalc publish",
     "precompile": "yarn clean",
-    "compile": "tsup --dts --out-dir ./dist --entry ./src/index.ts --entry ./src/util/logger.ts",
+    "compile": "tsc -p ./tsconfig.json",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts src",
     "test": "jest --passWithNoTests --all"
@@ -67,7 +67,6 @@
     "prettier": "2.7.1",
     "ts-jest": "29.0.3",
     "ts-node": "10.9.1",
-    "tsup": "6.3.0",
     "typescript": "4.8.4"
   },
   "prettier": {
