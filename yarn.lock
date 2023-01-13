@@ -10698,6 +10698,7 @@ __metadata:
     prettier: 2.7.1
     ts-jest: 29.0.3
     ts-node: 10.9.1
+    tsup: 6.5.0
     typescript: 4.8.4
   languageName: unknown
   linkType: soft

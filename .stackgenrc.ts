@@ -166,7 +166,7 @@ new TsupSupport(cli, 'tsup', {
   entry: ['./index.ts'],
 })
 
-new YarnProject(workspace, "stackgen", {
+const stackgen = new YarnProject(workspace, "stackgen", {
   license: "Apache-2.0",
   packageName: "stackgen",
   projectPath: "packages/stackgen",
@@ -187,6 +187,11 @@ new YarnProject(workspace, "stackgen", {
   },
   jest: {},
 });
+
+new TsupSupport(stackgen, 'tsup', {
+  outDir: buildPath,
+  entry: ['./index.ts']
+})
 
 const eslintWorkingDirectories: string[] = [];
 
