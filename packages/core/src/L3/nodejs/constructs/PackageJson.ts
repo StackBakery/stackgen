@@ -1,6 +1,6 @@
 import path from "path";
 import { Construct } from "constructs";
-import { Project, Workspace, FileSynthesizer, Fields, LifeCycle, LifeCycleStage } from "../../../L1";
+import { Project, Workspace, FileSynthesizer, Fields, LifeCycle, LifeCycleStage, Bindings } from "../../../L1";
 import { Manifest, ValidLicense } from "../../../L2";
 import { NodeProject } from "../project";
 
@@ -57,6 +57,25 @@ const packageOrdering = [
 
 export class PackageJson extends Manifest {
   public static readonly ID = "PackageJson";
+
+  public static hasSupport(construct: Construct) {
+    return !!this.tryOf(construct);
+  }
+
+  public static of(construct: Construct) {
+    const ret = this.tryOf(construct);
+
+    if (!ret) {
+      throw new Error(`Construct ${construct} does not have JestSupport`);
+    }
+
+    return ret;
+  }
+
+  public static tryOf(construct: Construct) {
+    return Bindings.of(Project.of(construct)).findByClass<PackageJson>(PackageJson);
+  }
+
   constructor(scope: Construct, props?: NodePackageJsonProps) {
     super(scope, PackageJson.ID, "package.json");
 
