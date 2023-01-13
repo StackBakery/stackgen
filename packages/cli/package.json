@@ -21,9 +21,8 @@
     "lint": "eslint --ext .ts src"
   },
   "files": [
-    "*.ts",
-    "**/*.ts",
-    "tsconfig.json",
+    "dist/*.js",
+    "dist/**/*.js",
     "dist/*.d.ts",
     "dist/**/*.d.ts"
   ],
