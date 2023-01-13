@@ -1,13 +1,11 @@
 import {
   Bindings,
   JsonFile,
-  // ManifestEntry,
-  // PackageDependency,
-  // PackageDependencyType,
   Project,
   SemanticReleaseSupport,
   YarnMonoWorkspace,
   YarnProject,
+  TsupSupport
 } from "@stackgen/core";
 
 const buildPath = "./dist";
@@ -62,7 +60,7 @@ new SemanticReleaseSupport(workspace, {
   releaseNotes: true,
 });
 
-new YarnProject(workspace, "core", {
+const core = new YarnProject(workspace, "core", {
   license: "Apache-2.0",
   packageName: "@stackgen/core",
   projectPath: "packages/core",
@@ -95,7 +93,6 @@ new YarnProject(workspace, "core", {
   scripts: {
     yalc: "npx yalc publish",
     precompile: "yarn clean",
-    // compile: `tsup --dts --out-dir ${buildPath} --entry ./src/index.ts --entry ./src/util/logger.ts`,
   },
   devDependencies: ["@types/mustache", "@types/js-yaml", "@types/object-hash", "@types/winston"],
   typescript: {},
@@ -107,7 +104,13 @@ new YarnProject(workspace, "core", {
   jest: {},
 });
 
-new YarnProject(workspace, "cli", {
+new TsupSupport(core, 'tsup', {
+  dts: true,
+  outDir: buildPath,
+  entry: ['./src/index.ts', './src/util/logger.ts']
+})
+
+const cli = new YarnProject(workspace, "cli", {
   packageName: "@stackgen/cli",
   projectPath: "packages/cli",
   license: "Apache-2.0",
@@ -158,6 +161,11 @@ new YarnProject(workspace, "cli", {
   },
 });
 
+new TsupSupport(cli, 'tsup', {
+  outDir: buildPath,
+  entry: ['./index.ts'],
+})
+
 new YarnProject(workspace, "stackgen", {
   license: "Apache-2.0",
   packageName: "stackgen",
@@ -186,16 +194,6 @@ Bindings.of(workspace)
   .filterByClass(Project)
   .filter((project) => !project.isDefaultProject)
   .forEach((project) => {
-    // new PackageDependency(project, "tsup", {
-    //   type: PackageDependencyType.DEV,
-    // });
-
-    // new ManifestEntry(project, "CompileScript", {
-    //   scripts: {
-    //     compile: `tsup --dts --out-dir ${buildPath} ./index.ts`,
-    //   },
-    // });
-
     eslintWorkingDirectories.push(`.${project.projectPath}`);
   });
 

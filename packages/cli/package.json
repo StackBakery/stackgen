@@ -16,7 +16,7 @@
   "scripts": {
     "stackgen": "npx tsx stackgen",
     "yalc": "npx yalc publish",
-    "compile": "tsc -p ./tsconfig.json",
+    "compile": "tsup",
     "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts src"
   },
@@ -60,6 +60,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.7.1",
     "ts-node": "10.9.1",
+    "tsup": "6.5.0",
     "typescript": "4.8.4"
   },
   "peerDependencies": {
@@ -311,6 +312,12 @@
           "import/no-extraneous-dependencies": "off"
         }
       }
+    ]
+  },
+  "tsup": {
+    "outDir": "./dist",
+    "entry": [
+      "./index.ts"
     ]
   }
 }
