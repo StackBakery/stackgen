@@ -57,7 +57,6 @@ const packageOrdering = [
 
 export class PackageJson extends Manifest {
   public static readonly ID = "PackageJson";
-
   constructor(scope: Construct, props?: NodePackageJsonProps) {
     super(scope, PackageJson.ID, "package.json");
 
