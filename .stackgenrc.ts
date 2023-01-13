@@ -189,6 +189,7 @@ const stackgen = new YarnProject(workspace, "stackgen", {
 });
 
 new TsupSupport(stackgen, 'tsup', {
+  dts: true,
   outDir: buildPath,
   entry: ['./index.ts']
 })

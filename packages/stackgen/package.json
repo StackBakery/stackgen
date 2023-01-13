@@ -337,6 +337,7 @@
     }
   },
   "tsup": {
+    "dts": true,
     "outDir": "./dist",
     "entry": [
       "./index.ts"
