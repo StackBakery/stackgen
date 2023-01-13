@@ -148,7 +148,7 @@ const cli = new YarnProject(workspace, "cli", {
   },
   types: "",
   typescript: {
-    include: ["index.ts", "stackgen.ts", "src"],
+    include: ["src"],
     compilerOptions: {
       baseUrl: ".",
       paths: tsCompilerPaths,
