@@ -22,9 +22,9 @@
     "yalc": "npx yalc publish",
     "precompile": "yarn clean",
     "compile": "tsup --dts --out-dir ./dist --entry ./src/index.ts --entry ./src/util/logger.ts",
-    "clean": "find . -name \"*.js\" -not -path \"./node_modules/*\" -delete && find . -name \"*.d.ts\" -not -path \"./node_modules/*\" -delete",
     "lint": "eslint --ext .ts src",
-    "test": "jest --passWithNoTests --all"
+    "test": "jest --passWithNoTests --all",
+    "clean": "rimraf ./dist"
   },
   "files": [
     "dist/*.js",
@@ -65,6 +65,7 @@
     "jest": "29.2.2",
     "jest-junit": "^13",
     "prettier": "2.7.1",
+    "rimraf": "2.7.1",
     "ts-jest": "29.0.3",
     "ts-node": "10.9.1",
     "tsup": "6.3.0",

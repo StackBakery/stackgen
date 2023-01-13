@@ -4,6 +4,7 @@ import { Construct } from "constructs";
 import { InstallShellScript, LifeCycle, LifeCycleStage, Project, ProjectProps, Workspace } from "../../../L1";
 import { GitIgnore, License, ManifestEntry, ValidLicense } from "../../../L2";
 import { Author, AuthorProps, NodePackageJsonProps, PackageDependency, PackageDependencyType, PackageJson } from "../constructs";
+import { CleanScript } from "../scripts";
 import { EslintProps, EslintSupport, JestProps, JestSupport, TypescriptSupport, TypescriptSupportProps } from "../tools";
 import { YalcSupport } from "../tools/YalcSupport";
 
@@ -134,6 +135,8 @@ export class NodeProject extends Project {
       files: [path.join(this.buildPath, "*.js"), path.join(this.buildPath, "**/*.js")],
       ...props,
     });
+
+    new CleanScript(this);
 
     if (this.buildPath !== this.sourcePath) {
       new GitIgnore(this, "DistPath", [this.buildPath]);
