@@ -317,7 +317,7 @@
   "tsup": {
     "outDir": "./dist",
     "entry": [
-      "./index.ts"
+      "./src/index.ts"
     ]
   }
 }

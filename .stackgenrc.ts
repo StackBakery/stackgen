@@ -163,7 +163,7 @@ const cli = new YarnProject(workspace, "cli", {
 
 new TsupSupport(cli, 'tsup', {
   outDir: buildPath,
-  entry: ['./index.ts'],
+  entry: ['./src/index.ts'],
 })
 
 const stackgen = new YarnProject(workspace, "stackgen", {
