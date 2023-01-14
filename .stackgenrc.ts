@@ -137,9 +137,8 @@ const cli = new YarnProject(workspace, "cli", {
   ],
   devDependencies: ["typescript", workspaceDependency("core")],
   peerDependencies: [workspaceDependency("core")],
-  files: ["*.ts", "**/*.ts", "tsconfig.json"],
   scripts: {
-    stackgen: "npx tsx stackgen",
+    stackgen: "tsx src/",
     yalc: "npx yalc publish",
   },
   bin: {
@@ -148,7 +147,7 @@ const cli = new YarnProject(workspace, "cli", {
   },
   types: "",
   typescript: {
-    include: ["index.ts", "stackgen.ts", "src"],
+    include: ["src"],
     compilerOptions: {
       baseUrl: ".",
       paths: tsCompilerPaths,
@@ -163,7 +162,7 @@ const cli = new YarnProject(workspace, "cli", {
 
 new TsupSupport(cli, 'tsup', {
   outDir: buildPath,
-  entry: ['./index.ts'],
+  entry: ['./src/index.ts'],
 })
 
 const stackgen = new YarnProject(workspace, "stackgen", {
@@ -191,7 +190,7 @@ const stackgen = new YarnProject(workspace, "stackgen", {
 new TsupSupport(stackgen, 'tsup', {
   dts: true,
   outDir: buildPath,
-  entry: ['./index.ts']
+  entry: ['./index.ts'],
 })
 
 const eslintWorkingDirectories: string[] = [];
