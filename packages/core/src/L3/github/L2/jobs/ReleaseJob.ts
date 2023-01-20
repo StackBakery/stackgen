@@ -54,7 +54,7 @@ export class ReleaseJob extends GithubJob {
     new GithubStep(this, "Check", {
       priority: 60,
       name: "Check for new commits",
-      run: 'echo ::set-output name=latest_commit::"$(git ls-remote origin -h ${{ github.ref }} | cut -f1)"',
+      run: 'echo latest_commit="$(git ls-remote origin -h ${{ github.ref }} | cut -f1)" >> $GITHUB_OUTPUT',
     });
   }
 }
