@@ -1700,11 +1700,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stackgen/cli@0.0.1, @stackgen/cli@workspace:packages/cli":
+"@stackgen/cli@1.0.0, @stackgen/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@stackgen/cli@workspace:packages/cli"
   dependencies:
-    "@stackgen/core": "workspace:packages/core"
+    "@stackgen/core": 1.0.0
     "@types/diff": 5.0.2
     "@types/glob": 8.0.0
     "@types/node": 17.0.45
@@ -1737,14 +1737,14 @@ __metadata:
     typescript: 4.8.4
     yargs: 17.6.0
   peerDependencies:
-    "@stackgen/core": "workspace:packages/core"
+    "@stackgen/core": 1.0.0
   bin:
     sg: ./dist/index.js
     stackgen: ./dist/index.js
   languageName: unknown
   linkType: soft
 
-"@stackgen/core@0.0.1, @stackgen/core@workspace:packages/core":
+"@stackgen/core@1.0.0, @stackgen/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@stackgen/core@workspace:packages/core"
   dependencies:
@@ -10680,8 +10680,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stackgen@workspace:packages/stackgen"
   dependencies:
-    "@stackgen/cli": 0.0.1
-    "@stackgen/core": 0.0.1
+    "@stackgen/cli": 1.0.0
+    "@stackgen/core": 1.0.0
     "@types/jest": 29.2.0
     "@types/node": 17.0.45
     "@typescript-eslint/eslint-plugin": 5.41.0
