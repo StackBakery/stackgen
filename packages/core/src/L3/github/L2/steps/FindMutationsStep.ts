@@ -11,7 +11,7 @@ export class FindSelfMutationStep extends GithubStep {
 
     super(scope, "FindSelfMutationStep", {
       name: "Find mutations",
-      run: ["git add .", `git diff --staged --patch --exit-code > .repo.patch || echo "::set-output name=${outputId}::true"`].join("\n"),
+      run: ["git add .", `git diff --staged --patch --exit-code > .repo.patch || echo "${outputId}=true" >> $GITHUB_OUTPUT`].join("\n"),
       ...props,
     });
 
