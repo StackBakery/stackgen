@@ -1,3 +1,19 @@
+# stackgen [1.1.0](https://github.com/StackBakery/stackgen/compare/stackgen@1.0.1...stackgen@1.1.0) (2023-01-20)
+
+
+### Features
+
+* add rimraf clean command ([6848395](https://github.com/StackBakery/stackgen/commit/6848395d179f18e8f257540ffcd643526bb880bb))
+
+
+
+
+
+### Dependencies
+
+* **@stackgen/cli:** upgraded to 1.1.0
+* **@stackgen/core:** upgraded to 1.1.0
+
 ## stackgen [1.0.1](https://github.com/StackBakery/stackgen/compare/stackgen@1.0.0...stackgen@1.0.1) (2023-01-20)
 
 
