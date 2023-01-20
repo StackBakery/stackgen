@@ -1,3 +1,3 @@
-#!/usr/bin/env node --loader tsx
+#!/usr/bin/env node
 
 import "./stackgen";
