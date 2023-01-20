@@ -1700,11 +1700,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stackgen/cli@1.0.0, @stackgen/cli@workspace:packages/cli":
+"@stackgen/cli@1.0.1, @stackgen/cli@workspace:packages/cli":
   version: 0.0.0-use.local
   resolution: "@stackgen/cli@workspace:packages/cli"
   dependencies:
-    "@stackgen/core": 1.0.0
+    "@stackgen/core": "workspace:packages/core"
     "@types/diff": 5.0.2
     "@types/glob": 8.0.0
     "@types/node": 17.0.45
@@ -1730,6 +1730,7 @@ __metadata:
     ora: ^5.4.1
     prettier: 2.7.1
     prompts: 2.4.2
+    rimraf: 2.7.1
     shell-escape: 0.2.0
     ts-node: 10.9.1
     tsup: 6.5.0
@@ -1737,7 +1738,7 @@ __metadata:
     typescript: 4.8.4
     yargs: 17.6.0
   peerDependencies:
-    "@stackgen/core": 1.0.0
+    "@stackgen/core": "workspace:packages/core"
   bin:
     sg: ./dist/index.js
     stackgen: ./dist/index.js
@@ -1775,6 +1776,7 @@ __metadata:
     mustache: 4.2.0
     object-hash: 3.0.0
     prettier: 2.7.1
+    rimraf: 2.7.1
     spdx-license-list: 6.6.0
     sync-request: 6.1.0
     ts-jest: 29.0.3
@@ -10125,7 +10127,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^2.5.2, rimraf@npm:^2.5.4, rimraf@npm:^2.6.2, rimraf@npm:^2.6.3, rimraf@npm:^2.7.1":
+"rimraf@npm:2.7.1, rimraf@npm:^2.5.2, rimraf@npm:^2.5.4, rimraf@npm:^2.6.2, rimraf@npm:^2.6.3, rimraf@npm:^2.7.1":
   version: 2.7.1
   resolution: "rimraf@npm:2.7.1"
   dependencies:
@@ -10680,7 +10682,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "stackgen@workspace:packages/stackgen"
   dependencies:
-    "@stackgen/cli": 1.0.0
+    "@stackgen/cli": 1.0.1
     "@stackgen/core": 1.0.0
     "@types/jest": 29.2.0
     "@types/node": 17.0.45
@@ -10696,6 +10698,7 @@ __metadata:
     jest: 29.2.2
     jest-junit: ^13
     prettier: 2.7.1
+    rimraf: 2.7.1
     ts-jest: 29.0.3
     ts-node: 10.9.1
     tsup: 6.5.0
@@ -12000,6 +12003,7 @@ __metadata:
     jest-junit: ^13
     mustache: 4.2.0
     prettier: 2.7.1
+    rimraf: 2.7.1
     semantic-release: ^17.4.6
     ts-jest: 29.0.3
     ts-node: 10.9.1

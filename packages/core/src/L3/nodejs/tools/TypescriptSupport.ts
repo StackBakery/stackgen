@@ -4,6 +4,7 @@ import { Bindings, Fields, JsonFile, Project } from "../../../L1";
 import { GitIgnore, ManifestEntry } from "../../../L2";
 import { PackageDependency, PackageDependencyType } from "../constructs";
 import { NodeProject } from "../project";
+import { CleanScriptPath } from "../scripts/CleanScriptPath";
 
 export interface TypescriptSupportProps {
   /**
@@ -423,9 +424,9 @@ export class TypescriptSupport extends Construct {
       new ManifestEntry(this, "Scripts", {
         scripts: {
           compile: "tsc -p ./tsconfig.json",
-          clean: 'find . -name "*.js" -not -path "./node_modules/*" -delete && find . -name "*.d.ts" -not -path "./node_modules/*" -delete',
         },
       });
+      new CleanScriptPath(this, "CleanTsBuild", project.buildPath);
     }
 
     const mainEntrypoint = (Fields.of(project.packageJson).fields.main as string) ?? path.join(project.buildPath, "index.ts");
@@ -467,6 +468,7 @@ export class TypescriptSupport extends Construct {
           strictPropertyInitialization: true,
           stripInternal: true,
           target: "ES6",
+          baseUrl: ".",
           ...props?.compilerOptions,
         },
       } as TypescriptSupportProps as Record<string, unknown>,
