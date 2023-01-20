@@ -1,9 +1,9 @@
-'on':
+"on":
   push:
     branches:
       - main
   workflow_dispatch: {}
-concurrency: '1'
+concurrency: "1"
 jobs:
   release:
     name: Release
@@ -14,17 +14,17 @@ jobs:
       latest_commit: ${{ steps.Check.outputs.latest_commit }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         id: Checkout
       - name: Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: ${{ runner.os }}-yarn-release
           path: .yarn/cache
         id: Cache
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
           registry-url: https://registry.npmjs.org/
           cache: yarn
         id: SetupNode
