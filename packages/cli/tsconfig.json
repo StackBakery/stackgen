@@ -3,8 +3,6 @@
     "node_modules"
   ],
   "include": [
-    "index.ts",
-    "stackgen.ts",
     "src",
     "src/*.ts",
     "src/**/*.ts"
