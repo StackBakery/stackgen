@@ -1,3 +1,16 @@
+# @stackgen/core [1.1.0](https://github.com/StackBakery/stackgen/compare/@stackgen/core@1.0.0...@stackgen/core@1.1.0) (2023-01-20)
+
+
+### Bug Fixes
+
+* escape paths with spaces ([229c75d](https://github.com/StackBakery/stackgen/commit/229c75d40777bac56848960e93476c1df9c49daa))
+
+
+### Features
+
+* add rimraf clean command ([6848395](https://github.com/StackBakery/stackgen/commit/6848395d179f18e8f257540ffcd643526bb880bb))
+* export ([9a7ee24](https://github.com/StackBakery/stackgen/commit/9a7ee2425de31d5b48b226a5607fc2b1ba4420b9))
+
 # @stackgen/core 1.0.0 (2023-01-20)
 
 
