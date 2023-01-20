@@ -41,10 +41,17 @@ export class CleanScript extends Construct {
 
       new ManifestEntry(this, "Scripts", {
         scripts: {
-          clean: `rimraf ${[...this.paths].join(" ")}`,
+          clean: `rimraf ${[...this.paths].map(this.escapePath).join(" ")}`,
         },
       });
     });
+  }
+
+  private escapePath(path: string) {
+    if (path.match(/\s/)) {
+      return `\"${path}\"`;
+    }
+    return path;
   }
 
   public addPath(path: string) {
