@@ -1,7 +1,7 @@
 {
   "name": "@stackgen/cli",
   "license": "Apache-2.0",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": {
     "name": "Stackgen",
     "email": "team@stackgen.dev"
@@ -14,16 +14,15 @@
     "stackgen": "./dist/index.js"
   },
   "scripts": {
-    "stackgen": "npx tsx stackgen",
+    "stackgen": "tsx src/",
     "yalc": "npx yalc publish",
-    "compile": "tsup --dts --out-dir ./dist ./index.ts",
+    "compile": "tsup",
     "lint": "eslint --ext .ts src",
     "clean": "rimraf ./dist"
   },
   "files": [
-    "*.ts",
-    "**/*.ts",
-    "tsconfig.json",
+    "dist/*.js",
+    "dist/**/*.js",
     "dist/*.d.ts",
     "dist/**/*.d.ts"
   ],
@@ -61,7 +60,7 @@
     "prettier": "2.7.1",
     "rimraf": "2.7.1",
     "ts-node": "10.9.1",
-    "tsup": "6.3.0",
+    "tsup": "6.5.0",
     "typescript": "4.8.4"
   },
   "peerDependencies": {
@@ -313,6 +312,12 @@
           "import/no-extraneous-dependencies": "off"
         }
       }
+    ]
+  },
+  "tsup": {
+    "outDir": "./dist",
+    "entry": [
+      "./src/index.ts"
     ]
   }
 }

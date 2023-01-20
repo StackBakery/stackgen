@@ -1,3 +1,4 @@
+import assert from "assert";
 import * as crypto from "crypto";
 import fs from "fs";
 import path from "path";
@@ -165,35 +166,31 @@ export class FileSynthesizer extends Construct {
       return fs.readFileSync(realPath);
     }
 
-    return undefined;
+    return;
   }
 
   public readRealFile(who: Construct, filePath: string) {
     const data = this.tryReadRealFile(who, filePath);
 
-    if (!data) {
-      throw new Error(`Cannot read file at: ${filePath}`);
-    }
+    assert(Buffer.isBuffer(data), `Cannot read file at: ${filePath}`);
 
     return data;
   }
 
   public tryReadRealJsonFile<T = Record<string, unknown>>(who: Construct, filePath: string): T | undefined {
-    const data = this.tryReadRealFile(who, filePath) as Buffer;
+    const data = this.tryReadRealFile(who, filePath);
 
-    if (data) {
+    if (Buffer.isBuffer(data)) {
       return JSON.parse(data.toString("utf8")) as T;
     } else {
-      return undefined;
+      return;
     }
   }
 
   public readRealJsonFile(who: Construct, filePath: string) {
     const data = this.tryReadRealJsonFile(who, filePath);
 
-    if (!data) {
-      throw new Error(`${who}: No JSON data found at: ${filePath}`);
-    }
+    assert(data === undefined, `${who}: No JSON data found at: ${filePath}`);
 
     return data;
   }

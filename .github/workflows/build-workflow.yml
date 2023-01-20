@@ -1,7 +1,7 @@
-'on':
+"on":
   pull_request: {}
   workflow_dispatch: {}
-concurrency: '1'
+concurrency: "1"
 jobs:
   build:
     name: Build
@@ -10,17 +10,17 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         id: Checkout
       - name: Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           key: ${{ runner.os }}-yarn
           path: .yarn/cache
         id: Cache
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
           registry-url: https://registry.npmjs.org/
           cache: yarn
         id: SetupNode
@@ -38,7 +38,7 @@ jobs:
           git diff --staged --patch --exit-code > .repo.patch || echo "::set-output name=self_mutation_happened::true"
         id: FindSelfMutationStep
       - name: Upload Patch
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: steps.self_mutation.outputs.self_mutation_happened
         with:
           name: ${{ .repo.patch }}
@@ -61,7 +61,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         id: Checkout
       - name: Report
         uses: ArtiomTr/jest-coverage-report-action@v2

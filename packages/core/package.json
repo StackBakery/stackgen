@@ -1,7 +1,7 @@
 {
   "name": "@stackgen/core",
   "license": "Apache-2.0",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": {
     "name": "Stackgen",
     "email": "team@stackgen.dev"
@@ -21,7 +21,7 @@
   "scripts": {
     "yalc": "npx yalc publish",
     "precompile": "yarn clean",
-    "compile": "tsup --dts --out-dir ./dist --entry ./src/index.ts --entry ./src/util/logger.ts",
+    "compile": "tsup",
     "lint": "eslint --ext .ts src",
     "test": "jest --passWithNoTests --all",
     "clean": "rimraf ./dist"
@@ -68,7 +68,7 @@
     "rimraf": "2.7.1",
     "ts-jest": "29.0.3",
     "ts-node": "10.9.1",
-    "tsup": "6.3.0",
+    "tsup": "6.5.0",
     "typescript": "4.8.4"
   },
   "prettier": {
@@ -361,5 +361,13 @@
         }
       ]
     }
+  },
+  "tsup": {
+    "dts": true,
+    "outDir": "./dist",
+    "entry": [
+      "./src/index.ts",
+      "./src/util/logger.ts"
+    ]
   }
 }
