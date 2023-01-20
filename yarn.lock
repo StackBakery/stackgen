@@ -1704,7 +1704,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@stackgen/cli@workspace:packages/cli"
   dependencies:
-    "@stackgen/core": "workspace:packages/core"
+    "@stackgen/core": 1.0.0
     "@types/diff": 5.0.2
     "@types/glob": 8.0.0
     "@types/node": 17.0.45
@@ -1738,7 +1738,7 @@ __metadata:
     typescript: 4.8.4
     yargs: 17.6.0
   peerDependencies:
-    "@stackgen/core": "workspace:packages/core"
+    "@stackgen/core": 1.0.0
   bin:
     sg: ./dist/index.js
     stackgen: ./dist/index.js

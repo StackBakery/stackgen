@@ -1,3 +1,13 @@
+## stackgen [1.0.1](https://github.com/StackBakery/stackgen/compare/stackgen@1.0.0...stackgen@1.0.1) (2023-01-20)
+
+
+
+
+
+### Dependencies
+
+* **@stackgen/cli:** upgraded to 1.0.1
+
 # stackgen 1.0.0 (2023-01-20)
 
 
