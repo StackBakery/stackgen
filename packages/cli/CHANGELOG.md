@@ -1,3 +1,10 @@
+## @stackgen/cli [1.0.1](https://github.com/StackBakery/stackgen/compare/@stackgen/cli@1.0.0...@stackgen/cli@1.0.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* do not use tsx in the CLI ([#20](https://github.com/StackBakery/stackgen/issues/20)) ([24553c7](https://github.com/StackBakery/stackgen/commit/24553c70d8bdc9a1a0510e502af2928b5a1d4ba4))
+
 # @stackgen/cli 1.0.0 (2023-01-20)
 
 
